@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bsy43a1ct57wd"
-path="res://.godot/imported/bucky1.png-88466f1d912058e461a7467a7c399597.ctex"
+uid="uid://bn33v8cmminm3"
+path="res://.godot/imported/buckyleft-movementwetslow.png-faba894851bf438adc26750c833d7e11.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://bucky/bucky1.png"
-dest_files=["res://.godot/imported/bucky1.png-88466f1d912058e461a7467a7c399597.ctex"]
+source_file="res://bucky/buckyleft-movementwetslow.png"
+dest_files=["res://.godot/imported/buckyleft-movementwetslow.png-faba894851bf438adc26750c833d7e11.ctex"]
 
 [params]
 
@@ -31,4 +31,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=0
+detect_3d/compress_to=1

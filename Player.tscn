@@ -1,34 +1,104 @@
-[gd_scene load_steps=5 format=3 uid="uid://crr4hlotrifkx"]
+[gd_scene load_steps=15 format=3 uid="uid://crr4hlotrifkx"]
 
-[ext_resource type="Script" path="res://Player.gd" id="1_kijjj"]
-[ext_resource type="Texture2D" uid="uid://c0berqb83wby0" path="res://icon.svg" id="1_wmu30"]
-
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_f1din"]
+[ext_resource type="Script" path="res://NewPlayer.gd" id="1_k5w5x"]
+[ext_resource type="Texture2D" uid="uid://eckp5btrn5gi" path="res://bucky/buckyleftjumpt2.png" id="3_6qagc"]
+[ext_resource type="Texture2D" uid="uid://cbycf7g7undmd" path="res://bucky/bucky-Sheet.png" id="3_bwieq"]
+[ext_resource type="Texture2D" uid="uid://bbta23ojf36so" path="res://bucky/bucky-left-movement.png" id="3_la802"]
+[ext_resource type="Texture2D" uid="uid://brslql738pvfg" path="res://bucky/buckyright-movement.png" id="4_rb0dd"]
+[ext_resource type="Texture2D" uid="uid://dhbvos3gtowm6" path="res://bucky/buckyrightjump2.png" id="5_pgh6y"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2ot4y"]
-size = Vector2(131, 134)
+size = Vector2(66, 102)
 
-[node name="RigidBody2D" type="RigidBody2D"]
-mass = 1.57
-inertia = 1.61
-physics_material_override = SubResource("PhysicsMaterial_f1din")
-max_contacts_reported = 4
-contact_monitor = true
-lock_rotation = true
-script = ExtResource("1_kijjj")
+[sub_resource type="AtlasTexture" id="AtlasTexture_0e3jd"]
+atlas = ExtResource("3_bwieq")
+region = Rect2(0, 0, 40, 40)
 
-[node name="Icon" type="Sprite2D" parent="."]
-position = Vector2(0, -2)
-texture = ExtResource("1_wmu30")
+[sub_resource type="AtlasTexture" id="AtlasTexture_pr7q2"]
+atlas = ExtResource("3_bwieq")
+region = Rect2(40, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_faf2d"]
+atlas = ExtResource("3_la802")
+region = Rect2(0, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ftqe3"]
+atlas = ExtResource("3_la802")
+region = Rect2(40, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iplv6"]
+atlas = ExtResource("4_rb0dd")
+region = Rect2(0, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mp0y8"]
+atlas = ExtResource("4_rb0dd")
+region = Rect2(40, 0, 40, 40)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yljo6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0e3jd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pr7q2")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 2.5
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_6qagc")
+}],
+"loop": true,
+"name": &"left_jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_faf2d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ftqe3")
+}],
+"loop": true,
+"name": &"left_walk",
+"speed": 2.5
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_pgh6y")
+}],
+"loop": true,
+"name": &"right_jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iplv6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mp0y8")
+}],
+"loop": true,
+"name": &"right_walk",
+"speed": 2.5
+}]
+
+[node name="RigidBody2D" type="CharacterBody2D"]
+script = ExtResource("1_k5w5x")
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-0.5, -2)
+position = Vector2(-2, 16)
 shape = SubResource("RectangleShape2D_2ot4y")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(-64, -55, -54, -65, 53, -65, 63, -55, 63, 49, 53, 61, -51, 62, -64, 50)
+polygon = PackedVector2Array(-47, -44, 41, -47, 43, 47, 35, 59, -40, 59, -46, 38)
 
-[connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]
-[connection signal="body_shape_exited" from="." to="." method="_on_body_shape_exited"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(3.5, 3.5)
+sprite_frames = SubResource("SpriteFrames_yljo6")
+animation = &"right_jump"

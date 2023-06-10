@@ -1,9 +1,10 @@
-extends RigidBody2D
+extends CharacterBody2D
 
 var grounded;
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$AnimatedSprite2D.play("idle");
 	grounded  = false;
 
 	pass # Replace with function body.
@@ -12,14 +13,14 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
 	if Input.is_action_pressed("left"):
-		set_linear_velocity(Vector2(-300, linear_velocity.y));
+		velocity.x = -200;
 	elif Input.is_action_pressed("right"):
-		set_linear_velocity(Vector2(300, linear_velocity.y));
+		velocity.x = 300;
 	else:
-		set_linear_velocity(Vector2(0, linear_velocity.y));
+		velocity.x = 0;
 		
 	if Input.is_action_pressed("jump") && grounded:
-		apply_central_impulse(Vector2(0,-700))
+		velocity.y = 300
 	pass
 
 
