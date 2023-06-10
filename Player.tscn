@@ -1,9 +1,34 @@
-[gd_scene load_steps=2 format=3 uid="uid://crr4hlotrifkx"]
+[gd_scene load_steps=5 format=3 uid="uid://crr4hlotrifkx"]
 
+[ext_resource type="Script" path="res://Player.gd" id="1_kijjj"]
 [ext_resource type="Texture2D" uid="uid://c0berqb83wby0" path="res://icon.svg" id="1_wmu30"]
 
-[node name="Player" type="Node2D"]
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_f1din"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2ot4y"]
+size = Vector2(131, 134)
+
+[node name="RigidBody2D" type="RigidBody2D"]
+mass = 1.57
+inertia = 1.61
+physics_material_override = SubResource("PhysicsMaterial_f1din")
+max_contacts_reported = 4
+contact_monitor = true
+lock_rotation = true
+script = ExtResource("1_kijjj")
 
 [node name="Icon" type="Sprite2D" parent="."]
 position = Vector2(0, -2)
 texture = ExtResource("1_wmu30")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-0.5, -2)
+shape = SubResource("RectangleShape2D_2ot4y")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-64, -55, -54, -65, 53, -65, 63, -55, 63, 49, 53, 61, -51, 62, -64, 50)
+
+[connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]
+[connection signal="body_shape_exited" from="." to="." method="_on_body_shape_exited"]
