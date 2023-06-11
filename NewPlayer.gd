@@ -21,6 +21,8 @@ func _process(delta):
 		if $AnimatedSprite2D.frame == 3:
 			waterfill = 0
 			state = IDLE
+		if $AnimatedSprite2D.frame == 0:
+			$GPUParticles2D.restart()
 	$Camera2D/Label.text = "Water: " + str(waterfill) 
 
 

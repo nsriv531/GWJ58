@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://crr4hlotrifkx"]
+[gd_scene load_steps=42 format=3 uid="uid://crr4hlotrifkx"]
 
 [ext_resource type="Script" path="res://NewPlayer.gd" id="1_k5w5x"]
 [ext_resource type="Texture2D" uid="uid://c2m8tfyey01yk" path="res://bucky/buckyrightdump.png" id="2_pfrcu"]
@@ -14,6 +14,29 @@
 [ext_resource type="Texture2D" uid="uid://dhbvos3gtowm6" path="res://bucky/buckyrightjump2.png" id="5_pgh6y"]
 [ext_resource type="Texture2D" uid="uid://bsmoc1c6e2h20" path="res://bucky/buckyright-movementwetslow.png" id="7_rdng7"]
 [ext_resource type="Texture2D" uid="uid://dxjajj8n6oqdd" path="res://bucky/buckyrightjumping-movementwaterSLOW.png" id="11_ylvwg"]
+
+[sub_resource type="Gradient" id="Gradient_2qpen"]
+offsets = PackedFloat32Array(0.612546, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_mq4xs"]
+gradient = SubResource("Gradient_2qpen")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_7acvg"]
+emission_shape = 3
+emission_box_extents = Vector3(31, 1, 1)
+particle_flag_disable_z = true
+direction = Vector3(0, -1, 0)
+spread = 36.17
+gravity = Vector3(0, 200, 0)
+initial_velocity_min = 263.8
+initial_velocity_max = 441.72
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+scale_min = 3.0
+scale_max = 7.0
+color = Color(0.643137, 0.764706, 1, 1)
+color_ramp = SubResource("GradientTexture1D_mq4xs")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2ot4y"]
 size = Vector2(66, 102)
@@ -109,6 +132,9 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_4q2ol")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yjhw1")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_yjhw1")
@@ -240,6 +266,19 @@ font_size = 32
 
 [node name="RigidBody2D" type="CharacterBody2D"]
 script = ExtResource("1_k5w5x")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+z_index = 100
+position = Vector2(-6, -24)
+emitting = false
+amount = 100
+process_material = SubResource("ParticleProcessMaterial_7acvg")
+lifetime = 2.0
+one_shot = true
+explosiveness = 0.87
+randomness = 0.36
+trail_enabled = true
+trail_lifetime = 0.01
 
 [node name="Area2D" type="Area2D" parent="."]
 
