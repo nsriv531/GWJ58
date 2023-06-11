@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://crr4hlotrifkx"]
+[gd_scene load_steps=44 format=3 uid="uid://crr4hlotrifkx"]
 
 [ext_resource type="Script" path="res://NewPlayer.gd" id="1_k5w5x"]
 [ext_resource type="Texture2D" uid="uid://c2m8tfyey01yk" path="res://bucky/buckyrightdump.png" id="2_pfrcu"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://drvy8ormbmlq2" path="res://bucky/buckyleftjumping-movementwaterSLOW.png" id="5_p0cs8"]
 [ext_resource type="Texture2D" uid="uid://dhbvos3gtowm6" path="res://bucky/buckyrightjump2.png" id="5_pgh6y"]
 [ext_resource type="Texture2D" uid="uid://bsmoc1c6e2h20" path="res://bucky/buckyright-movementwetslow.png" id="7_rdng7"]
+[ext_resource type="Texture2D" uid="uid://c6m4tg78uwkx8" path="res://bucky/buckyrightpartialdump.png" id="11_5ebkd"]
 [ext_resource type="Texture2D" uid="uid://dxjajj8n6oqdd" path="res://bucky/buckyrightjumping-movementwaterSLOW.png" id="11_ylvwg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2ot4y"]
@@ -77,6 +78,22 @@ region = Rect2(0, 0, 40, 40)
 [sub_resource type="AtlasTexture" id="AtlasTexture_3ytrr"]
 atlas = ExtResource("5_mrh54")
 region = Rect2(40, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bkaqm"]
+atlas = ExtResource("11_5ebkd")
+region = Rect2(0, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xphky"]
+atlas = ExtResource("11_5ebkd")
+region = Rect2(40, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fxp1h"]
+atlas = ExtResource("11_5ebkd")
+region = Rect2(80, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8disk"]
+atlas = ExtResource("11_5ebkd")
+region = Rect2(120, 0, 40, 40)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ll8ys"]
 atlas = ExtResource("11_ylvwg")
@@ -198,6 +215,26 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_bkaqm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xphky")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fxp1h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8disk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8disk")
+}],
+"loop": true,
+"name": &"partial_dump",
+"speed": 3.5
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("5_pgh6y")
 }],
 "loop": true,
@@ -256,7 +293,7 @@ polygon = PackedVector2Array(-47, -44, 41, -47, 43, 47, 35, 59, -40, 59, -46, 38
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(3.5, 3.5)
 sprite_frames = SubResource("SpriteFrames_yljo6")
-animation = &"dump"
+animation = &"partial_dump"
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
 occluder = SubResource("OccluderPolygon2D_ny441")

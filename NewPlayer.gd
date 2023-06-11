@@ -24,7 +24,7 @@ func _process(delta):
 			waterfill = 0
 			state = IDLE
 			
-		if $AnimatedSprite2D.frame == 0:
+		if $AnimatedSprite2D.frame == 2:
 			var part = waterParticle.instantiate()
 			part.setAmount((1 + waterfill/40))
 			add_child(part)
@@ -72,7 +72,10 @@ func _physics_process(delta):
 		
 		if Input.is_action_just_pressed("dump") and is_on_floor():
 			state = DUMP
-			$AnimatedSprite2D.play("dump")
+			if waterfill < 800:
+				$AnimatedSprite2D.play("partial_dump")
+			else:
+				$AnimatedSprite2D.play("dump")
 			
 		if Input.is_action_just_pressed("jump") and is_on_floor():
 			velocity.y = JUMP_VELOCITY
