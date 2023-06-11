@@ -6,6 +6,8 @@ var waterfill = 0
 const SPEED = 300.0
 const JUMP_VELOCITY = -700.0
 
+var waterParticle = preload("res://WaterParticle.tscn")
+
 var state
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -21,8 +23,13 @@ func _process(delta):
 		if $AnimatedSprite2D.frame == 3:
 			waterfill = 0
 			state = IDLE
+			
 		if $AnimatedSprite2D.frame == 0:
-			$GPUParticles2D.restart()
+			var part = waterParticle.instantiate()
+			part.setAmount((1 + waterfill/40))
+			add_child(part)
+			part.start()
+			
 	$Camera2D/Label.text = "Water: " + str(waterfill) 
 
 

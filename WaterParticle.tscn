@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=3 uid="uid://bn6nnfb3wujun"]
+
+[ext_resource type="Script" path="res://WaterParticle.gd" id="1_3e5m2"]
+
+[sub_resource type="Gradient" id="Gradient_iom1v"]
+offsets = PackedFloat32Array(0.612546, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_mq4xs"]
+gradient = SubResource("Gradient_iom1v")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_qqdbm"]
+emission_shape = 3
+emission_box_extents = Vector3(31, 1, 1)
+particle_flag_disable_z = true
+direction = Vector3(0, -1, 0)
+spread = 36.17
+gravity = Vector3(0, 200, 0)
+initial_velocity_min = 58.93
+initial_velocity_max = 212.45
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+scale_min = 3.0
+scale_max = 7.0
+color = Color(0.643137, 0.764706, 1, 1)
+color_ramp = SubResource("GradientTexture1D_mq4xs")
+
+[node name="WaterParticle" type="Node2D"]
+script = ExtResource("1_3e5m2")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+z_index = 100
+position = Vector2(-6, -24)
+emitting = false
+amount = 1
+process_material = SubResource("ParticleProcessMaterial_qqdbm")
+one_shot = true
+explosiveness = 0.92
+randomness = 0.36
+local_coords = true
+trail_lifetime = 0.01
