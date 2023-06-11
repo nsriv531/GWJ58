@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://c52ppudt6cdvc"]
+[gd_scene load_steps=6 format=3 uid="uid://i7wq7b6i46ly"]
 
 [ext_resource type="Texture2D" uid="uid://c8ga6fnd8jplc" path="res://Art/rain-Sheet.png" id="1_qs65o"]
 [ext_resource type="Script" path="res://Rain.gd" id="2_7nqag"]

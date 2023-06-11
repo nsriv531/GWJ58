@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://crr4hlotrifkx"]
+[gd_scene load_steps=16 format=3 uid="uid://crr4hlotrifkx"]
 
 [ext_resource type="Script" path="res://NewPlayer.gd" id="1_k5w5x"]
 [ext_resource type="Texture2D" uid="uid://eckp5btrn5gi" path="res://bucky/buckyleftjumpt2.png" id="3_6qagc"]
@@ -86,6 +86,9 @@ animations = [{
 "speed": 2.5
 }]
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_ny441"]
+polygon = PackedVector2Array(-53, -46, 33, -45, 32, 57, -41, 60)
+
 [node name="RigidBody2D" type="CharacterBody2D"]
 script = ExtResource("1_k5w5x")
 
@@ -102,3 +105,9 @@ polygon = PackedVector2Array(-47, -44, 41, -47, 43, 47, 35, 59, -40, 59, -46, 38
 scale = Vector2(3.5, 3.5)
 sprite_frames = SubResource("SpriteFrames_yljo6")
 animation = &"right_jump"
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_ny441")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2(0, -100)
