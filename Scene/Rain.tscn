@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://i7wq7b6i46ly"]
+
+[ext_resource type="Script" path="res://Scene/Rain.gd" id="1_iqekc"]
+[ext_resource type="Texture2D" uid="uid://c8ga6fnd8jplc" path="res://Art/rain-Sheet.png" id="2_ktpx0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_molfp"]
+atlas = ExtResource("2_ktpx0")
+region = Rect2(0, 0, 140, 83)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0utpb"]
+atlas = ExtResource("2_ktpx0")
+region = Rect2(140, 0, 140, 83)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2nk12"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_molfp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0utpb")
+}],
+"loop": true,
+"name": &"rain",
+"speed": 5.0
+}]
+
+[node name="Rain" type="Node2D"]
+modulate = Color(1, 1, 1, 0.541176)
+self_modulate = Color(1, 1, 1, 0.654902)
+z_index = -5
+position = Vector2(250.5, 328)
+scale = Vector2(3.49286, 7.75904)
+script = ExtResource("1_iqekc")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_2nk12")
+animation = &"rain"
+
+[connection signal="ready" from="." to="." method="_on_ready"]
