@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://kwqqh5wodb6w"]
+[gd_scene load_steps=15 format=3 uid="uid://kwqqh5wodb6w"]
 
 [ext_resource type="Script" path="res://Scene/Main.gd" id="1_a7e2a"]
 [ext_resource type="TileSet" uid="uid://c1u7252wfu8fe" path="res://Scene/TileSet.tres" id="2_8lsjv"]
@@ -6,6 +6,13 @@
 [ext_resource type="AudioStream" uid="uid://cdrelkixh0erh" path="res://Music/house_banger_real.wav" id="4_75wqb"]
 [ext_resource type="PackedScene" uid="uid://b7xy5rq50tww7" path="res://Objects/Snake.tscn" id="5_pmpqg"]
 [ext_resource type="PackedScene" uid="uid://cjbbeejbhv17c" path="res://Objects/Shrine.tscn" id="6_jv3ka"]
+[ext_resource type="PackedScene" uid="uid://d4i030m5ayshh" path="res://Art/clouds/sky.tscn" id="7_yelyt"]
+[ext_resource type="PackedScene" uid="uid://cq0gtxd0wfpdn" path="res://Art/clouds/cloud_1.tscn" id="8_w4byw"]
+[ext_resource type="PackedScene" uid="uid://cpndvqypfbco2" path="res://Art/clouds/cloud_2.tscn" id="9_1b8yu"]
+[ext_resource type="PackedScene" uid="uid://bcoli8c6gfawt" path="res://Art/clouds/cloud_4.tscn" id="10_n1e8r"]
+[ext_resource type="PackedScene" uid="uid://bnb1mpw3uy48h" path="res://Art/clouds/cloud_5.tscn" id="11_or2r5"]
+[ext_resource type="PackedScene" uid="uid://fbqlcc57n63p" path="res://Art/clouds/cloud_6.tscn" id="12_04tme"]
+[ext_resource type="PackedScene" uid="uid://b3t8215cga4ym" path="res://Art/clouds/cloud_3.tscn" id="13_nwi8f"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_j3ubl"]
 emission_shape = 3
@@ -56,3 +63,37 @@ position = Vector2(840, 430)
 
 [node name="Player" parent="." instance=ExtResource("3_h4ukq")]
 position = Vector2(94, 407)
+
+[node name="sky" parent="." instance=ExtResource("7_yelyt")]
+position = Vector2(600, 135)
+scale = Vector2(18.8976, 14.4415)
+
+[node name="cloud1" parent="." instance=ExtResource("8_w4byw")]
+position = Vector2(612, 13)
+
+[node name="cloud2" parent="." instance=ExtResource("9_1b8yu")]
+position = Vector2(832, -271)
+
+[node name="cloud4" parent="." instance=ExtResource("10_n1e8r")]
+position = Vector2(896, -319)
+
+[node name="cloud5" parent="." instance=ExtResource("11_or2r5")]
+position = Vector2(285, -393)
+
+[node name="cloud6" parent="." instance=ExtResource("12_04tme")]
+position = Vector2(562, -524)
+
+[node name="cloud3" parent="." instance=ExtResource("8_w4byw")]
+position = Vector2(633, -485)
+
+[node name="cloud7" parent="." instance=ExtResource("9_1b8yu")]
+position = Vector2(802, -557)
+
+[node name="cloud8" parent="." instance=ExtResource("13_nwi8f")]
+position = Vector2(880, -380)
+
+[node name="cloud9" parent="." instance=ExtResource("9_1b8yu")]
+position = Vector2(822, 86)
+
+[node name="cloud10" parent="." instance=ExtResource("8_w4byw")]
+position = Vector2(639, -85)

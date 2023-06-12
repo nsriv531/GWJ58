@@ -1,9 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://bjq04f2tettqm"]
+[gd_scene load_steps=8 format=3 uid="uid://bjq04f2tettqm"]
 
 [ext_resource type="Script" path="res://Scene/Main.gd" id="1_lua68"]
 [ext_resource type="TileSet" uid="uid://c1u7252wfu8fe" path="res://Scene/TileSet.tres" id="2_hn7fs"]
 [ext_resource type="PackedScene" uid="uid://crr4hlotrifkx" path="res://Objects/Player.tscn" id="4_3sxa8"]
 [ext_resource type="AudioStream" uid="uid://cdrelkixh0erh" path="res://Music/house_banger_real.wav" id="4_isjoo"]
+[ext_resource type="Texture2D" uid="uid://b2pn4xrtyogqk" path="res://sky-Sheet.png" id="5_1jgog"]
+[ext_resource type="PackedScene" uid="uid://d4i030m5ayshh" path="res://Art/clouds/sky.tscn" id="5_d1jiq"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_j3ubl"]
 emission_shape = 3
@@ -47,3 +49,47 @@ autoplay = true
 
 [node name="Player" parent="." instance=ExtResource("4_3sxa8")]
 position = Vector2(-246, 387)
+
+[node name="sky" parent="." instance=ExtResource("5_d1jiq")]
+
+[node name="cloud1" type="Sprite2D" parent="."]
+position = Vector2(23, -458)
+scale = Vector2(9.17857, 9.17857)
+texture = ExtResource("5_1jgog")
+region_enabled = true
+region_rect = Rect2(-3, 113.352, 129, 85)
+
+[node name="cloud2" type="Sprite2D" parent="."]
+position = Vector2(562, -467)
+scale = Vector2(9.17857, 9.17857)
+texture = ExtResource("5_1jgog")
+region_enabled = true
+region_rect = Rect2(9.5, 352.072, 79, 76)
+
+[node name="cloud3" type="Sprite2D" parent="."]
+position = Vector2(-381, -450)
+scale = Vector2(9.17857, 9.17857)
+texture = ExtResource("5_1jgog")
+region_enabled = true
+region_rect = Rect2(15, 440.512, 113.5, 80.988)
+
+[node name="cloud4" type="Sprite2D" parent="."]
+position = Vector2(1092, -467)
+scale = Vector2(9.17857, 9.17857)
+texture = ExtResource("5_1jgog")
+region_enabled = true
+region_rect = Rect2(39.25, 539.164, 86, 64)
+
+[node name="cloud5" type="Sprite2D" parent="."]
+position = Vector2(926, -486)
+scale = Vector2(9.17857, 9.17857)
+texture = ExtResource("5_1jgog")
+region_enabled = true
+region_rect = Rect2(0, 783.187, 66, 44)
+
+[node name="cloud6" type="Sprite2D" parent="."]
+position = Vector2(-160, -701)
+scale = Vector2(9.17857, 9.17857)
+texture = ExtResource("5_1jgog")
+region_enabled = true
+region_rect = Rect2(45, 925.547, 55, 41)

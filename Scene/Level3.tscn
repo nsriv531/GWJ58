@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://ytaid4koctwn"]
+[gd_scene load_steps=8 format=3 uid="uid://ytaid4koctwn"]
 
 [ext_resource type="Script" path="res://Scene/Main.gd" id="1_pw727"]
 [ext_resource type="TileSet" uid="uid://c1u7252wfu8fe" path="res://Scene/TileSet.tres" id="2_ymb4o"]
 [ext_resource type="AudioStream" uid="uid://cdrelkixh0erh" path="res://Music/house_banger_real.wav" id="3_wndxl"]
 [ext_resource type="PackedScene" uid="uid://crr4hlotrifkx" path="res://Objects/Player.tscn" id="4_4o850"]
 [ext_resource type="PackedScene" uid="uid://cjbbeejbhv17c" path="res://Objects/Shrine.tscn" id="5_o8qh7"]
+[ext_resource type="PackedScene" uid="uid://d4i030m5ayshh" path="res://Art/clouds/sky.tscn" id="6_lqlr5"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_j3ubl"]
 emission_shape = 3
@@ -51,3 +52,6 @@ position = Vector2(814, 410)
 
 [node name="Player" parent="." instance=ExtResource("4_4o850")]
 position = Vector2(-246, 387)
+
+[node name="sky" parent="." instance=ExtResource("6_lqlr5")]
+position = Vector2(965, -242)

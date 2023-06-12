@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://fbqlcc57n63p"]
+
+[ext_resource type="Texture2D" uid="uid://b2pn4xrtyogqk" path="res://sky-Sheet.png" id="1_oxu2t"]
+
+[node name="cloud6" type="Sprite2D"]
+position = Vector2(1328, -256)
+scale = Vector2(9.17857, 9.17857)
+texture = ExtResource("1_oxu2t")
+region_enabled = true
+region_rect = Rect2(45, 925.547, 55, 41)
