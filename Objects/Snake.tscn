@@ -1,11 +1,16 @@
-[gd_scene load_steps=8 format=3 uid="uid://b7xy5rq50tww7"]
+[gd_scene load_steps=11 format=3 uid="uid://b7xy5rq50tww7"]
 
 [ext_resource type="Script" path="res://Objects/Snake.gd" id="1_nu706"]
 [ext_resource type="Texture2D" uid="uid://dgkc7ngt6pskt" path="res://Art/snake-moveleft.png" id="1_qqla8"]
+[ext_resource type="Texture2D" uid="uid://geu8lv8sd2x" path="res://Art/snake-gettinghit.png" id="2_chi35"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wbga1"]
 radius = 12.0
 height = 24.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xfqne"]
+atlas = ExtResource("2_chi35")
+region = Rect2(0, 0, 40, 40)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uhsl4"]
 atlas = ExtResource("1_qqla8")
@@ -15,8 +20,23 @@ region = Rect2(0, 0, 40, 40)
 atlas = ExtResource("1_qqla8")
 region = Rect2(40, 0, 40, 40)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_enxdq"]
+atlas = ExtResource("2_chi35")
+region = Rect2(0, 0, 40, 40)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_uffe5"]
 animations = [{
+"frames": [{
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_xfqne")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xfqne")
+}],
+"loop": true,
+"name": &"death",
+"speed": 1.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_uhsl4")
@@ -26,6 +46,17 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
+"speed": 2.5
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_enxdq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_enxdq")
+}],
+"loop": true,
+"name": &"hit",
 "speed": 2.5
 }]
 
@@ -43,6 +74,7 @@ shape = SubResource("CapsuleShape2D_wbga1")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_uffe5")
+animation = &"hit"
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
 occluder = SubResource("OccluderPolygon2D_3pj7l")

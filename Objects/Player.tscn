@@ -1,8 +1,9 @@
-[gd_scene load_steps=44 format=3 uid="uid://crr4hlotrifkx"]
+[gd_scene load_steps=47 format=3 uid="uid://crr4hlotrifkx"]
 
 [ext_resource type="Script" path="res://Objects/NewPlayer.gd" id="1_6uy2v"]
 [ext_resource type="Texture2D" uid="uid://c2m8tfyey01yk" path="res://Art/bucky/buckyrightdump.png" id="2_mfvdy"]
 [ext_resource type="Texture2D" uid="uid://cbycf7g7undmd" path="res://Art/bucky/bucky-Sheet.png" id="3_1hukf"]
+[ext_resource type="Texture2D" uid="uid://vsly67pc8p13" path="res://Art/bucky/buckyrighbuckinggettinghit.png" id="3_xytuc"]
 [ext_resource type="Texture2D" uid="uid://cfi8khgw67d5w" path="res://Art/bucky/buckyjumpup1.png" id="4_5xr57"]
 [ext_resource type="Texture2D" uid="uid://2yuhbr6juwrl" path="res://Art/bucky/bucky-full-jump.png" id="5_uydld"]
 [ext_resource type="Texture2D" uid="uid://cso80vlyika7b" path="res://Art/bucky/bucky-full-dlet.png" id="6_ifntf"]
@@ -35,6 +36,14 @@ region = Rect2(80, 0, 40, 40)
 [sub_resource type="AtlasTexture" id="AtlasTexture_yjhw1"]
 atlas = ExtResource("2_mfvdy")
 region = Rect2(120, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v7v2r"]
+atlas = ExtResource("3_xytuc")
+region = Rect2(280, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mjm41"]
+atlas = ExtResource("3_xytuc")
+region = Rect2(80, 0, 40, 40)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0e3jd"]
 atlas = ExtResource("3_1hukf")
@@ -137,6 +146,22 @@ animations = [{
 "loop": false,
 "name": &"dump",
 "speed": 3.5
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v7v2r")
+}],
+"loop": true,
+"name": &"hit_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mjm41")
+}],
+"loop": true,
+"name": &"hit_left_full",
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -289,7 +314,7 @@ shape = SubResource("CapsuleShape2D_x1cbm")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(3.5, 3.5)
 sprite_frames = SubResource("SpriteFrames_yljo6")
-animation = &"dump"
+animation = &"hit_left"
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
 occluder = SubResource("OccluderPolygon2D_ny441")

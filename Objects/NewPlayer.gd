@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-enum{IDLE, DUMP, WALK}
+enum{IDLE, DUMP, WALK, HIT}
 
 var waterfill = 0
 const SPEED = 300.0
@@ -19,12 +19,26 @@ func isDumping():
 	else:
 		return false
 
+func hit():
+	velocity.x = -500
+	velocity.y = JUMP_VELOCITY
+	if waterfill < 800:
+		$AnimatedSprite2D.play("hit_left")
+	else:
+		$AnimatedSprite2D.play("hit_left_full")
+	state = HIT
+
 func _ready():
 	state = IDLE
 	$Camera2D/Label.text = "Water:"
 	$AnimatedSprite2D.play("idle")
 	
 func _process(delta):
+	
+	if state == HIT:
+		if velocity.y == 0:
+			state = IDLE
+	
 	if state == DUMP:
 		if $AnimatedSprite2D.frame == 3:
 			waterfill = 0
@@ -40,6 +54,7 @@ func _process(delta):
 
 
 func _physics_process(delta):
+	
 	movement(delta)
 	raycast_fill_water(delta)
 	collisions()
@@ -137,4 +152,5 @@ func movement(delta):
 					$AnimatedSprite2D.play("idle_jump")
 				else:
 					$AnimatedSprite2D.play("idle_jump_slow")
+	if state != DUMP:
 		move_and_slide()

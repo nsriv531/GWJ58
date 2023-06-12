@@ -38,6 +38,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_22nxy"]
+size = Vector2(42.4, 26.8)
 
 [node name="Shrine" type="Area2D"]
 scale = Vector2(5, 5)
@@ -49,6 +50,8 @@ sprite_frames = SubResource("SpriteFrames_v8yy8")
 animation = &"onfire"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1.90735e-06, -3.4)
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_22nxy")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
