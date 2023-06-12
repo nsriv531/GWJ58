@@ -18,7 +18,7 @@
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_x1cbm"]
 radius = 42.0
-height = 116.0
+height = 100.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0nq7k"]
 atlas = ExtResource("2_mfvdy")
@@ -274,12 +274,13 @@ animations = [{
 }]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_ny441"]
-polygon = PackedVector2Array(-47, -44, 33, -45, 32, 57, -41, 60)
+polygon = PackedVector2Array(-48, -62, 35, -62, 32, 57, -41, 60)
 
 [sub_resource type="LabelSettings" id="LabelSettings_4jl5f"]
 font_size = 32
 
-[node name="RigidBody2D" type="CharacterBody2D"]
+[node name="RigidBody2D" type="CharacterBody2D" groups=["Player"]]
+collision_mask = 15
 script = ExtResource("1_6uy2v")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -288,10 +289,9 @@ shape = SubResource("CapsuleShape2D_x1cbm")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(3.5, 3.5)
 sprite_frames = SubResource("SpriteFrames_yljo6")
-animation = &"partial_dump"
+animation = &"dump"
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
-visible = false
 occluder = SubResource("OccluderPolygon2D_ny441")
 
 [node name="Camera2D" type="Camera2D" parent="."]

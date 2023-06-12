@@ -1,0 +1,55 @@
+[gd_scene load_steps=8 format=3 uid="uid://cjbbeejbhv17c"]
+
+[ext_resource type="Texture2D" uid="uid://bgauxu36s4cqo" path="res://Art/tilemap_ver2.png" id="1_eu2n6"]
+[ext_resource type="Script" path="res://Objects/Shrine.gd" id="1_k61i7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_63yti"]
+atlas = ExtResource("1_eu2n6")
+region = Rect2(160, 111, 16, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7udns"]
+atlas = ExtResource("1_eu2n6")
+region = Rect2(128, 110, 16, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d6olo"]
+atlas = ExtResource("1_eu2n6")
+region = Rect2(144, 110, 16, 34)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_v8yy8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_63yti")
+}],
+"loop": true,
+"name": &"notonfire",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7udns")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d6olo")
+}],
+"loop": true,
+"name": &"onfire",
+"speed": 1.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_22nxy"]
+
+[node name="Shrine" type="Area2D"]
+scale = Vector2(5, 5)
+script = ExtResource("1_k61i7")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -7)
+sprite_frames = SubResource("SpriteFrames_v8yy8")
+animation = &"onfire"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_22nxy")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

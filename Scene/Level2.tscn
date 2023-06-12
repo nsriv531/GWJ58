@@ -45,5 +45,5 @@ stream = ExtResource("4_isjoo")
 volume_db = -30.488
 autoplay = true
 
-[node name="RigidBody2D" parent="." instance=ExtResource("4_3sxa8")]
+[node name="Player" parent="." instance=ExtResource("4_3sxa8")]
 position = Vector2(-246, 387)

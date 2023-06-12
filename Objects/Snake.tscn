@@ -1,0 +1,53 @@
+[gd_scene load_steps=8 format=3 uid="uid://b7xy5rq50tww7"]
+
+[ext_resource type="Script" path="res://Objects/Snake.gd" id="1_nu706"]
+[ext_resource type="Texture2D" uid="uid://dgkc7ngt6pskt" path="res://Art/snake-moveleft.png" id="1_qqla8"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wbga1"]
+radius = 12.0
+height = 24.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uhsl4"]
+atlas = ExtResource("1_qqla8")
+region = Rect2(0, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c637f"]
+atlas = ExtResource("1_qqla8")
+region = Rect2(40, 0, 40, 40)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uffe5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uhsl4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c637f")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.5
+}]
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_3pj7l"]
+polygon = PackedVector2Array(-11, -2, 13, -2, 13, 17, -11, 17)
+
+[node name="Snake" type="Area2D" groups=["Enemy"]]
+scale = Vector2(5, 5)
+collision_layer = 2
+script = ExtResource("1_nu706")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 6)
+shape = SubResource("CapsuleShape2D_wbga1")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_uffe5")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_3pj7l")
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(0, -0.5)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
