@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 enum{IDLE, DUMP, WALK, HIT}
-
+@export var SPRING_VELOCITY: float = -1000.0
 var waterfill = 0
 const SPEED = 300.0
 const JUMP_VELOCITY = -700.0
@@ -154,3 +154,11 @@ func movement(delta):
 					$AnimatedSprite2D.play("idle_jump_slow")
 	if state != DUMP:
 		move_and_slide()
+
+
+
+
+
+func _on_spring_spring_jump_velcity(jumpheight) -> void:
+	velocity.y = jumpheight
+	pass # Replace with function body.
