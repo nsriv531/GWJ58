@@ -1,0 +1,82 @@
+[gd_scene load_steps=12 format=3 uid="uid://dskghujq0x18b"]
+
+[ext_resource type="Script" path="res://Scene/Wind.gd" id="1_2qm1g"]
+[ext_resource type="Texture2D" uid="uid://cwmks8ux1npca" path="res://Art/windanimation.png" id="2_4pf38"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f36km"]
+atlas = ExtResource("2_4pf38")
+region = Rect2(0, 0, 32, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aruxx"]
+atlas = ExtResource("2_4pf38")
+region = Rect2(32, 0, 32, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_go4f2"]
+atlas = ExtResource("2_4pf38")
+region = Rect2(64, 0, 32, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ir3x"]
+atlas = ExtResource("2_4pf38")
+region = Rect2(96, 0, 32, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jb1a5"]
+atlas = ExtResource("2_4pf38")
+region = Rect2(128, 0, 32, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oyqe3"]
+atlas = ExtResource("2_4pf38")
+region = Rect2(160, 0, 32, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e7640"]
+atlas = ExtResource("2_4pf38")
+region = Rect2(192, 0, 32, 12)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gwdti"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f36km")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aruxx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_go4f2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2ir3x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jb1a5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oyqe3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e7640")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sth1c"]
+size = Vector2(22, 8)
+
+[node name="Wind" type="Area2D"]
+scale = Vector2(10, 7)
+script = ExtResource("1_2qm1g")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_gwdti")
+frame_progress = 0.417853
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 0)
+shape = SubResource("RectangleShape2D_sth1c")
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,0 +1,18 @@
+extends Area2D
+
+@export var PUSHBACK_VELOCITY: float = 20.0
+# 
+signal push_player_back(velocity)
+
+func _ready() -> void:
+	$AnimatedSprite2D.play("default")
+	pass
+
+func _on_body_entered(body: Node2D) -> void:
+	$Timer.start()
+	pass # Replace with function body.
+
+
+func _on_timer_timeout() -> void:
+	push_player_back.emit(PUSHBACK_VELOCITY)
+	pass # Replace with function body.
