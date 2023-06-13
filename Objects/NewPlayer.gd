@@ -152,3 +152,10 @@ func is_dumping():
 		return true
 	else:
 		return false
+
+
+func _on_wind_push_player_back(speed) -> void:
+	velocity.x = speed
+	state = IDLE
+	move_and_slide()
+	pass # Replace with function body.
