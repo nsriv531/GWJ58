@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://cio8icrsxqxnq"]
 
 [ext_resource type="Script" path="res://Scene/Wind.gd" id="1_2qm1g"]
-[ext_resource type="Texture2D" path="res://Art/windanimation.png" id="2_4pf38"]
+[ext_resource type="Texture2D" uid="uid://cwmks8ux1npca" path="res://Art/windanimation.png" id="2_4pf38"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_f36km"]
 atlas = ExtResource("2_4pf38")
@@ -66,6 +66,7 @@ size = Vector2(22, 8)
 [node name="Wind" type="Area2D"]
 scale = Vector2(10, 7)
 script = ExtResource("1_2qm1g")
+PUSHBACK_VELOCITY = -2500.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1

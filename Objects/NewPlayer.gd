@@ -156,6 +156,10 @@ func is_dumping():
 
 func _on_wind_push_player_back(speed) -> void:
 	velocity.x = speed
-	state = IDLE
-	move_and_slide()
+	velocity.y = -70
+	if is_full():
+		$AnimatedSprite2D.play("hit_left_full")
+	else:
+		$AnimatedSprite2D.play("hit_left")
+	state = HIT
 	pass # Replace with function body.
