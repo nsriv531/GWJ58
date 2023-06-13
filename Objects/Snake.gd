@@ -34,7 +34,7 @@ func _on_body_entered(body):
 	if body.is_in_group("Player") && state == ALIVE:
 		if body.velocity.y > 0:
 				# If so, we squash it and bounce.
-			self.squash(body.waterfill)
+			self.squash(body.water_fill)
 			body.velocity.y = body.JUMP_VELOCITY
 		else:
 			body.hit()

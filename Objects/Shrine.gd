@@ -12,7 +12,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if player_overlap && player.isDumping() && player.waterfill >= 800:
+	if player_overlap && player.is_dumping() && player.is_full():
 		$AnimatedSprite2D.play("notonfire")
 	pass
 

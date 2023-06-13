@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://d4i030m5ayshh" path="res://Art/clouds/sky.tscn" id="5_d1jiq"]
 [ext_resource type="PackedScene" uid="uid://cjbbeejbhv17c" path="res://Objects/Shrine.tscn" id="7_l05ov"]
 [ext_resource type="PackedScene" uid="uid://b7xy5rq50tww7" path="res://Objects/Snake.tscn" id="8_idc4f"]
-[ext_resource type="PackedScene" uid="uid://h4wtj1ukqxig" path="res://Scene/Spring.tscn" id="9_putwc"]
+[ext_resource type="PackedScene" path="res://Scene/Spring.tscn" id="9_putwc"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_j3ubl"]
 emission_shape = 3
