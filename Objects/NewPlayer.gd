@@ -156,7 +156,7 @@ func is_dumping():
 
 func _on_wind_push_player_back(speed) -> void:
 	velocity.x = speed
-	velocity.y = -70
+	velocity.y = -100
 	if is_full():
 		$AnimatedSprite2D.play("hit_left_full")
 	else:
