@@ -1,5 +1,33 @@
-[gd_scene load_steps=2 format=3 uid="uid://b3q3ioij4wxsv"]
+[gd_scene load_steps=4 format=3 uid="uid://by22ikyjeeop4"]
 
-[ext_resource type="PackedScene" uid="uid://b7xy5rq50tww7" path="res://Objects/Snake.tscn" id="1_q4msb"]
+[ext_resource type="Script" path="res://Objects/Snake.gd" id="1_ancb7"]
 
-[node name="Lizard" instance=ExtResource("1_q4msb")]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wbga1"]
+radius = 12.0
+height = 24.0
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_3pj7l"]
+polygon = PackedVector2Array(-11, -2, 13, -2, 13, 17, -11, 17)
+
+[node name="Salamander" type="Area2D" groups=["Enemy"]]
+scale = Vector2(5, 5)
+collision_layer = 2
+script = ExtResource("1_ancb7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 6)
+shape = SubResource("CapsuleShape2D_wbga1")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_3pj7l")
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(0, -0.5)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered" flags=18]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout" flags=18]

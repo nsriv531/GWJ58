@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cw0wbgwfy4ksk"]
+[gd_scene load_steps=12 format=3 uid="uid://cw0wbgwfy4ksk"]
 
 [ext_resource type="Script" path="res://Scene/Main.gd" id="1_lua68"]
 [ext_resource type="TileSet" uid="uid://c1u7252wfu8fe" path="res://Scene/TileSet.tres" id="2_hn7fs"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://d4i030m5ayshh" path="res://Art/clouds/sky.tscn" id="5_d1jiq"]
 [ext_resource type="PackedScene" uid="uid://cjbbeejbhv17c" path="res://Objects/Shrine.tscn" id="7_l05ov"]
 [ext_resource type="PackedScene" uid="uid://b7xy5rq50tww7" path="res://Objects/Snake.tscn" id="8_idc4f"]
+[ext_resource type="PackedScene" uid="uid://h4wtj1ukqxig" path="res://Objects/Spring.tscn" id="10_hwh71"]
 [ext_resource type="PackedScene" uid="uid://cio8icrsxqxnq" path="res://Objects/Wind.tscn" id="10_ybupw"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_j3ubl"]
@@ -105,5 +106,8 @@ position = Vector2(2320, 1102)
 
 [node name="Wind" parent="." instance=ExtResource("10_ybupw")]
 position = Vector2(287, 418)
+
+[node name="Spring" parent="." instance=ExtResource("10_hwh71")]
+position = Vector2(894, 430)
 
 [connection signal="push_player_back" from="Wind" to="Player" method="_on_wind_push_player_back"]
