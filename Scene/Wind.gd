@@ -9,12 +9,12 @@ func _ready() -> void:
 	pass
 
 func _on_body_entered(body: Node2D) -> void:
+	push_player_back.emit(PUSHBACK_VELOCITY)
 	$Timer.start()
 	pass # Replace with function body.
 
 
 func _on_timer_timeout() -> void:
-	push_player_back.emit(PUSHBACK_VELOCITY)
 	pass # Replace with function body.
 
 
