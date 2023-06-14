@@ -74,7 +74,7 @@ shape = SubResource("CapsuleShape2D_wbga1")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_uffe5")
-animation = &"hit"
+frame_progress = 0.940474
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
 occluder = SubResource("OccluderPolygon2D_3pj7l")
@@ -82,4 +82,8 @@ occluder = SubResource("OccluderPolygon2D_3pj7l")
 [node name="Node2D" type="Node2D" parent="."]
 position = Vector2(0, -0.5)
 
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

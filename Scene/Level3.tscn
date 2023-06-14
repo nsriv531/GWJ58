@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://srsdr6qrq7kb"]
+[gd_scene load_steps=11 format=3 uid="uid://srsdr6qrq7kb"]
 
 [ext_resource type="Script" path="res://Scene/Main.gd" id="1_pw727"]
 [ext_resource type="TileSet" uid="uid://c1u7252wfu8fe" path="res://Scene/TileSet.tres" id="2_ymb4o"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://d4i030m5ayshh" path="res://Art/clouds/sky.tscn" id="6_lqlr5"]
 [ext_resource type="PackedScene" uid="uid://cio8icrsxqxnq" path="res://Objects/Wind.tscn" id="7_ihreo"]
 [ext_resource type="PackedScene" uid="uid://h4wtj1ukqxig" path="res://Objects/Spring.tscn" id="8_p18oa"]
+[ext_resource type="PackedScene" uid="uid://b7xy5rq50tww7" path="res://Objects/Snake.tscn" id="9_6yuqg"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_j3ubl"]
 emission_shape = 3
@@ -81,6 +82,9 @@ PUSHBACK_VELOCITY = -1000.0
 [node name="Spring" parent="." instance=ExtResource("8_p18oa")]
 position = Vector2(718, 426)
 JUMP_HEIGHT = -1600
+
+[node name="Snake" parent="." instance=ExtResource("9_6yuqg")]
+position = Vector2(-42, 380)
 
 [connection signal="push_player_back" from="wind1" to="Player" method="_on_wind_push_player_back"]
 [connection signal="push_player_back" from="wind2" to="Player" method="_on_wind_push_player_back"]

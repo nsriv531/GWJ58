@@ -1,5 +1,5 @@
 [gd_scene load_steps=2 format=3 uid="uid://b3q3ioij4wxsv"]
 
-[ext_resource type="PackedScene" uid="uid://b7xy5rq50tww7" path="res://Objects/Snake.tscn" id="1_1blvq"]
+[ext_resource type="PackedScene" uid="uid://b7xy5rq50tww7" path="res://Objects/Snake.tscn" id="1_q4msb"]
 
-[node name="Lizard" instance=ExtResource("1_1blvq")]
+[node name="Lizard" instance=ExtResource("1_q4msb")]
