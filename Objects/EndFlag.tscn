@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://bqpye4lu8rv5w"]
+
+[node name="EndFlag" type="Area2D"]

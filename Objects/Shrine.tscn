@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cjbbeejbhv17c"]
+[gd_scene load_steps=14 format=3 uid="uid://cjbbeejbhv17c"]
 
 [ext_resource type="Texture2D" uid="uid://bgauxu36s4cqo" path="res://Art/tilemap_ver2.png" id="1_eu2n6"]
 [ext_resource type="Script" path="res://Objects/Shrine.gd" id="1_k61i7"]
@@ -15,6 +15,30 @@ region = Rect2(128, 110, 16, 34)
 atlas = ExtResource("1_eu2n6")
 region = Rect2(144, 110, 16, 34)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_ser8n"]
+atlas = ExtResource("1_eu2n6")
+region = Rect2(112, 109, 16, 35)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s7ddg"]
+atlas = ExtResource("1_eu2n6")
+region = Rect2(80, 109, 16, 35)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0g0ml"]
+atlas = ExtResource("1_eu2n6")
+region = Rect2(96, 109, 16, 35)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o5l6l"]
+atlas = ExtResource("1_eu2n6")
+region = Rect2(32, 109, 16, 35)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3snrp"]
+atlas = ExtResource("1_eu2n6")
+region = Rect2(64, 109, 16, 35)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8tvb2"]
+atlas = ExtResource("1_eu2n6")
+region = Rect2(48, 109, 16, 35)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_v8yy8"]
 animations = [{
 "frames": [{
@@ -22,7 +46,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_63yti")
 }],
 "loop": true,
-"name": &"notonfire",
+"name": &"var1_notonfire",
 "speed": 1.0
 }, {
 "frames": [{
@@ -33,21 +57,59 @@ animations = [{
 "texture": SubResource("AtlasTexture_d6olo")
 }],
 "loop": true,
-"name": &"onfire",
+"name": &"var1_onfire",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ser8n")
+}],
+"loop": true,
+"name": &"var2_notonfire",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s7ddg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0g0ml")
+}],
+"loop": true,
+"name": &"var2_onfire",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o5l6l")
+}],
+"loop": true,
+"name": &"var3_notonfire",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3snrp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8tvb2")
+}],
+"loop": true,
+"name": &"var3_onfire",
 "speed": 1.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_22nxy"]
 size = Vector2(42.4, 26.8)
 
-[node name="Shrine" type="Area2D"]
+[node name="Shrine" type="Area2D" groups=["Shrine"]]
 scale = Vector2(5, 5)
 script = ExtResource("1_k61i7")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -7)
 sprite_frames = SubResource("SpriteFrames_v8yy8")
-animation = &"onfire"
+animation = &"var1_notonfire"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1.90735e-06, -3.4)
