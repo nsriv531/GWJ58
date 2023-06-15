@@ -1,10 +1,73 @@
-[gd_scene load_steps=4 format=3 uid="uid://b3q3ioij4wxsv"]
+[gd_scene load_steps=14 format=3 uid="uid://b3q3ioij4wxsv"]
 
 [ext_resource type="Script" path="res://Objects/Snake.gd" id="1_ancb7"]
+[ext_resource type="Texture2D" uid="uid://b2xlmktc6vs2x" path="res://Art/salamanderdied.png" id="2_jyyya"]
+[ext_resource type="Texture2D" uid="uid://b1yu58lg3jhjh" path="res://Art/salamandermoveleft.png" id="2_ol2wb"]
+[ext_resource type="Texture2D" uid="uid://b4ob4rycu4efd" path="res://Art/salamandergettinghit.png" id="4_g8nq5"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wbga1"]
 radius = 12.0
 height = 24.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fc8n1"]
+atlas = ExtResource("2_jyyya")
+region = Rect2(0, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_34mva"]
+atlas = ExtResource("2_jyyya")
+region = Rect2(40, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xswgo"]
+atlas = ExtResource("2_ol2wb")
+region = Rect2(0, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mekot"]
+atlas = ExtResource("2_ol2wb")
+region = Rect2(40, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qdm7w"]
+atlas = ExtResource("4_g8nq5")
+region = Rect2(0, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fifpl"]
+atlas = ExtResource("4_g8nq5")
+region = Rect2(40, 0, 40, 40)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ey6l7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fc8n1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_34mva")
+}],
+"loop": true,
+"name": &"death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xswgo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mekot")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.5
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qdm7w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fifpl")
+}],
+"loop": true,
+"name": &"hit",
+"speed": 3.5
+}]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_3pj7l"]
 polygon = PackedVector2Array(-11, -2, 13, -2, 13, 17, -11, 17)
@@ -19,6 +82,8 @@ position = Vector2(0, 6)
 shape = SubResource("CapsuleShape2D_wbga1")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ey6l7")
+animation = &"death"
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
 occluder = SubResource("OccluderPolygon2D_3pj7l")

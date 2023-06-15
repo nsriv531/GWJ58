@@ -120,7 +120,6 @@ position = Vector2(501, 411)
 
 [node name="Shrine3" parent="." instance=ExtResource("7_l05ov")]
 position = Vector2(2100, 88)
-shrine_variation = 2
 
 [node name="Shrine4" parent="." instance=ExtResource("7_l05ov")]
 position = Vector2(2579.91, 1135.47)

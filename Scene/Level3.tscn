@@ -65,7 +65,7 @@ position = Vector2(1009, -158)
 JUMP_HEIGHT = -1400
 
 [node name="Spring2" parent="." instance=ExtResource("8_p18oa")]
-position = Vector2(304, 838)
+position = Vector2(265, 814)
 JUMP_HEIGHT = -1000
 
 [node name="Snake" parent="." instance=ExtResource("9_6yuqg")]
@@ -91,11 +91,11 @@ position = Vector2(-144, -793)
 [node name="winds" type="Node2D" parent="."]
 
 [node name="wind1" parent="winds" instance=ExtResource("7_ihreo")]
-position = Vector2(2110, 107)
+position = Vector2(2364, 107)
 PUSHBACK_VELOCITY = -500.0
 
 [node name="wind2" parent="winds" instance=ExtResource("7_ihreo")]
-position = Vector2(2109, 43)
+position = Vector2(2355, 13)
 PUSHBACK_VELOCITY = -500.0
 
 [node name="Wind3" parent="winds" instance=ExtResource("7_ihreo")]
