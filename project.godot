@@ -11,8 +11,12 @@ config_version=5
 [application]
 
 config/name="BucketGame"
-run/main_scene="res://Scene/Level2.tscn"
+run/main_scene="res://Scene/Levels/Level1.tscn"
 config/features=PackedStringArray("4.0", "Forward Plus")
+
+[autoload]
+
+GlobalVariables="*res://GlobalVariables.gd"
 
 [display]
 

@@ -14,7 +14,6 @@ font_size = 50
 size = Vector2(38.0347, 24.983)
 
 [node name="EndFlag" type="Node2D"]
-scale = Vector2(1, 1)
 script = ExtResource("1_pta7k")
 
 [node name="Label" type="Label" parent="."]
@@ -31,21 +30,18 @@ scale = Vector2(5, 5)
 [node name="Flag" type="Sprite2D" parent="EndFlagArea"]
 material = SubResource("ShaderMaterial_yg6df")
 position = Vector2(5, -5.6)
-scale = Vector2(1, 1)
 texture = ExtResource("1_nqf76")
 region_enabled = true
 region_rect = Rect2(132, 80, 10, 8)
 
 [node name="Pole" type="Sprite2D" parent="EndFlagArea"]
 position = Vector2(-1, -1.6)
-scale = Vector2(1, 1)
 texture = ExtResource("1_nqf76")
 region_enabled = true
 region_rect = Rect2(130, 80, 2, 16)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EndFlagArea"]
 position = Vector2(4.8, -3.2)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_exrlq")
 
 [connection signal="body_entered" from="EndFlagArea" to="." method="_on_end_flag_area_body_entered"]

@@ -60,7 +60,9 @@ func raycast_fill_water(delta):
 	query.exclude = [self]
 	var result = space_state.intersect_ray(query)
 	if result.size() == 0 && water_fill < 1000:
-		water_fill += ceil(delta*2)
+		water_fill += ceil(delta) * 2
+	if water_fill > 1000:
+		water_fill = 1000
 		
 func movement(delta):
 	var speed = SPEED - (water_fill/8)
