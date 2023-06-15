@@ -1,6 +1,7 @@
 extends Node2D
 
 @export var level_num:int = 1
+@onready var player = $Player
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -14,6 +15,8 @@ func _ready():
 		endflag.connect_shrine(shrine)
 	pass # Replace with function body.
 
+func get_player():
+	return player
 
 func next_level():
 	var dir = DirAccess.open("res://Scene/Levels/")

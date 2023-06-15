@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://kqpraa5blrbi"]
+[gd_scene load_steps=15 format=3 uid="uid://bkka3dqsqmsyx"]
 
 [ext_resource type="Script" path="res://Scene/Main.gd" id="1_op6n8"]
 [ext_resource type="TileSet" uid="uid://c1u7252wfu8fe" path="res://Scene/TileSet.tres" id="2_7340m"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://fbqlcc57n63p" path="res://Art/clouds/cloud_6.tscn" id="12_15olh"]
 [ext_resource type="PackedScene" uid="uid://b3t8215cga4ym" path="res://Art/clouds/cloud_3.tscn" id="13_4boym"]
 [ext_resource type="PackedScene" uid="uid://h4wtj1ukqxig" path="res://Objects/Spring.tscn" id="13_54hao"]
+[ext_resource type="PackedScene" uid="uid://cfbqr1n2325vk" path="res://Objects/Boss.tscn" id="13_l2hta"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_j3ubl"]
 emission_shape = 3
@@ -95,3 +96,6 @@ position = Vector2(529, 752)
 
 [node name="Spring2" parent="." instance=ExtResource("13_54hao")]
 position = Vector2(-101, 752)
+
+[node name="Boss" parent="." instance=ExtResource("13_l2hta")]
+position = Vector2(496, 333)
