@@ -93,6 +93,8 @@ func movement(delta):
 					$AnimatedSprite2D.play("left_walk_slow")
 				else:
 					$AnimatedSprite2D.play("left_walk")
+					if not walk_left.playing:
+						walk_left.play()
 			velocity.x = direction * speed
 		else:
 			if is_on_floor():
