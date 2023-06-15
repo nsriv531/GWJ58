@@ -47,8 +47,10 @@ func _on_body_entered(body):
 			self.squash(body.water_fill)
 			body.velocity.y = body.JUMP_VELOCITY
 		else:
-			body.hit()
-
+			if(body.position.x < self.position.x):
+				body.hit(-500) 
+			else: 
+				body.hit(500)
 
 func _on_timer_timeout() -> void:
 	if  is_moving_right == true:

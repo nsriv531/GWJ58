@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://crr4hlotrifkx"]
+[gd_scene load_steps=48 format=3 uid="uid://crr4hlotrifkx"]
 
 [ext_resource type="Script" path="res://Objects/NewPlayer.gd" id="1_6uy2v"]
 [ext_resource type="Texture2D" uid="uid://c2m8tfyey01yk" path="res://Art/bucky/buckyrightdump.png" id="2_mfvdy"]
@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://dxjajj8n6oqdd" path="res://Art/bucky/buckyrightjumping-movementwaterSLOW.png" id="13_ojgpj"]
 [ext_resource type="Texture2D" uid="uid://brslql738pvfg" path="res://Art/bucky/buckyright-movement.png" id="14_d32tj"]
 [ext_resource type="Texture2D" uid="uid://bsmoc1c6e2h20" path="res://Art/bucky/buckyright-movementwetslow.png" id="15_bxp8o"]
+[ext_resource type="AudioStream" uid="uid://d07g1nlesjbf0" path="res://Music/fullnotif.wav" id="17_afiyt"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_x1cbm"]
 radius = 42.0
@@ -331,3 +332,9 @@ offset_right = -372.0
 offset_bottom = -303.0
 text = "AAAAAAAAAA"
 label_settings = SubResource("LabelSettings_4jl5f")
+
+[node name="FullNotif" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("17_afiyt")
+volume_db = -1.874
+
+[node name="walk_left" type="AudioStreamPlayer2D" parent="."]

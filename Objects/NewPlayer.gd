@@ -5,7 +5,9 @@ enum{IDLE, DUMP, HIT, LEFT,RIGHT}
 var water_fill = 0
 const SPEED = 300.0
 const JUMP_VELOCITY = -700.0
-
+@onready var fullnotification = $FullNotif
+@onready var walk_left = $walk_left
+var is_notify = false
 var waterParticle = preload("res://Scene/WaterParticle.tscn")
 
 var state
@@ -134,35 +136,40 @@ func _on_spring_spring_jump_velcity(jumpheight) -> void:
 	velocity.y = jumpheight
 	pass # Replace with function body.
 
-func hit():
-	velocity.x = -500
+func hit(knock_back):
+	velocity.x = knock_back
 	velocity.y = JUMP_VELOCITY
 	if is_full():
 		$AnimatedSprite2D.play("hit_left_full")
 	else:
 		$AnimatedSprite2D.play("hit_left")
 	state = HIT
-	
+
 func is_full():
 	if water_fill < 800:
+		is_notify = false
 		return false
 	else:
+		if not is_notify and not fullnotification.playing:
+			is_notify = true
+			fullnotification.play()
 		return true
-	
+		
 func is_dumping():
 	if state == DUMP:
 		return true
 	else:
 		return false
 
-
 func _on_wind_push_player_back(speed) -> void:
 	
 	if !is_full():
+
 		velocity.x = speed
 		velocity.y = -100
 		$AnimatedSprite2D.play("hit_left")
 	state = HIT
 	pass # Replace with function body.
+
 
 
