@@ -1,10 +1,14 @@
 extends Area2D
 
+signal on_shrine_dumped
+
+var burning
 var player_overlap
 var player
 @export var shrine_variation:int = 1 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	burning = true
 	player_overlap = false
 	$AnimatedSprite2D.play("var" + str(shrine_variation) + "_onfire")
 	pass # Replace with function body.
@@ -12,8 +16,10 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if player_overlap && player.is_dumping() && player.is_full():
+	if player_overlap && player.is_dumping() && player.is_full() && burning:
 		$AnimatedSprite2D.play("var" + str(shrine_variation) + "_notonfire")
+		burning = false
+		on_shrine_dumped.emit()
 	pass
 
 

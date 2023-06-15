@@ -1,3 +1,52 @@
-[gd_scene format=3 uid="uid://bqpye4lu8rv5w"]
+[gd_scene load_steps=7 format=3 uid="uid://bqpye4lu8rv5w"]
 
-[node name="EndFlag" type="Area2D"]
+[ext_resource type="Texture2D" uid="uid://bcehhtgce87u4" path="res://Art/tilemap.png" id="1_nqf76"]
+[ext_resource type="Script" path="res://Objects/EndFlag.gd" id="1_pta7k"]
+[ext_resource type="FontFile" uid="uid://2ags8kql0rds" path="res://Art/ARCADECLASSIC.TTF" id="1_x88wr"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_jhmvi"]
+font = ExtResource("1_x88wr")
+font_size = 50
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yg6df"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_exrlq"]
+size = Vector2(38.0347, 24.983)
+
+[node name="EndFlag" type="Node2D"]
+scale = Vector2(1, 1)
+script = ExtResource("1_pta7k")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -24.0
+offset_top = -128.0
+offset_right = 63.0
+offset_bottom = -58.0
+text = "0 / 3"
+label_settings = SubResource("LabelSettings_jhmvi")
+
+[node name="EndFlagArea" type="Area2D" parent="."]
+scale = Vector2(5, 5)
+
+[node name="Flag" type="Sprite2D" parent="EndFlagArea"]
+material = SubResource("ShaderMaterial_yg6df")
+position = Vector2(5, -5.6)
+scale = Vector2(1, 1)
+texture = ExtResource("1_nqf76")
+region_enabled = true
+region_rect = Rect2(132, 80, 10, 8)
+
+[node name="Pole" type="Sprite2D" parent="EndFlagArea"]
+position = Vector2(-1, -1.6)
+scale = Vector2(1, 1)
+texture = ExtResource("1_nqf76")
+region_enabled = true
+region_rect = Rect2(130, 80, 2, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EndFlagArea"]
+position = Vector2(4.8, -3.2)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_exrlq")
+
+[connection signal="body_entered" from="EndFlagArea" to="." method="_on_end_flag_area_body_entered"]
+[connection signal="body_exited" from="EndFlagArea" to="." method="_on_end_flag_area_body_exited"]

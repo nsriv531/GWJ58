@@ -117,3 +117,4 @@ shape = SubResource("RectangleShape2D_22nxy")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[connection signal="on_shrine_dumped" from="." to="." method="_on_on_shrine_dumped"]
