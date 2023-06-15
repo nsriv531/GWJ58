@@ -305,6 +305,7 @@ polygon = PackedVector2Array(-48, -62, 35, -62, 32, 57, -41, 60)
 font_size = 32
 
 [node name="RigidBody2D" type="CharacterBody2D" groups=["Player"]]
+z_index = 10
 collision_mask = 15
 script = ExtResource("1_6uy2v")
 

@@ -48,4 +48,3 @@ one_shot = true
 explosiveness = 0.92
 randomness = 0.36
 local_coords = true
-trail_lifetime = 0.01

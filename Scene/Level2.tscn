@@ -45,7 +45,6 @@ process_material = SubResource("ParticleProcessMaterial_j3ubl")
 lifetime = 10.0
 preprocess = 10.0
 visibility_rect = Rect2(-100, -100, 1000, 2000)
-trail_lifetime = 0.01
 
 [node name="Level2Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_isjoo")
