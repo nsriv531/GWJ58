@@ -15,6 +15,7 @@ func _on_body_entered(body: Node2D) -> void:
 
 
 func _on_timer_timeout() -> void:
+	push_player_back.emit(PUSHBACK_VELOCITY)
 	pass # Replace with function body.
 
 

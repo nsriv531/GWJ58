@@ -34,7 +34,7 @@ animations = [{
 }]
 
 [node name="Spring" type="Area2D"]
-scale = Vector2(2, 2)
+scale = Vector2(3, 3)
 script = ExtResource("1_ohk5p")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

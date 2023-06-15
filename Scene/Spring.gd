@@ -21,6 +21,7 @@ func _process(delta: float) -> void:
 
 
 func _on_body_entered(body: Node2D) -> void:
+	print_debug(body.get_node("RigidBody2D"))
 	Spring_Jump_velcity.emit(JUMP_HEIGHT)
 	$SpringDefualtimer.start()
 	animation.play("activate")
