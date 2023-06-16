@@ -1,5 +1,10 @@
 extends CharacterBody2D
 
+signal life_changed(health)
+var damage = 0.5 
+var max_hearts: int = 3
+var hearts: float = max_hearts
+
 enum{IDLE, DUMP, HIT, LEFT,RIGHT}
 @export var SPRING_VELOCITY: float = -1000.0
 var water_fill = 0
@@ -18,6 +23,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 func _ready():
 	state = IDLE
+	life_changed.emit(hearts)
 	$Camera2D/Label.text = "Water:"
 	$AnimatedSprite2D.play("idle")
 	
@@ -141,11 +147,16 @@ func _on_spring_spring_jump_velcity(jumpheight) -> void:
 func hit(knock_back):
 	velocity.x = knock_back
 	velocity.y = JUMP_VELOCITY
-	if is_full():
-		$AnimatedSprite2D.play("hit_left_full")
+	hearts -= damage 
+	if(hearts <= 0):
+		hearts
 	else:
-		$AnimatedSprite2D.play("hit_left")
-	state = HIT
+		life_changed.emit(hearts)
+		if is_full():
+			$AnimatedSprite2D.play("hit_left_full")
+		else:
+			$AnimatedSprite2D.play("hit_left")
+		state = HIT
 
 func is_full():
 	if water_fill < 800:

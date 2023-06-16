@@ -100,3 +100,5 @@ position = Vector2(639, -85)
 
 [node name="EndFlag" parent="." instance=ExtResource("14_6ip5k")]
 position = Vector2(1037, 208)
+
+[connection signal="pause_game_signal" from="." to="Player" method="_on_node_2d_pause_game_signal"]
