@@ -93,9 +93,14 @@ position = Vector2(639, -85)
 
 [node name="Spring" parent="." instance=ExtResource("13_54hao")]
 position = Vector2(529, 752)
+JUMP_HEIGHT = -1000
 
 [node name="Spring2" parent="." instance=ExtResource("13_54hao")]
 position = Vector2(-101, 752)
+JUMP_HEIGHT = -1000
 
 [node name="Boss" parent="." instance=ExtResource("13_l2hta")]
-position = Vector2(496, 333)
+position = Vector2(494, 545)
+
+[connection signal="Spring_Jump_velcity" from="Spring" to="Player" method="_on_spring_spring_jump_velcity"]
+[connection signal="Spring_Jump_velcity" from="Spring2" to="Player" method="_on_spring_spring_jump_velcity"]

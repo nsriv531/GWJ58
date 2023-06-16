@@ -172,6 +172,3 @@ func _on_wind_push_player_back(speed) -> void:
 		$AnimatedSprite2D.play("hit_left")
 	state = HIT
 	pass # Replace with function body.
-
-
-

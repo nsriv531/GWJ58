@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dva5hm551p2fd" path="res://Art/faucetguy-sheet.png" id="1_o07s6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_35u4k"]
+size = Vector2(192, 251)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nbrip"]
 atlas = ExtResource("1_o07s6")
@@ -99,7 +100,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"hit",
-"speed": 5.0
+"speed": 2.5
 }, {
 "frames": [{
 "duration": 1.0,
@@ -158,9 +159,13 @@ animations = [{
 script = ExtResource("1_jowgh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, -34.5)
 shape = SubResource("RectangleShape2D_35u4k")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(80, -46)
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_p8d1e")
-animation = &"active"
+animation = &"hit"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
