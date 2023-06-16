@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://fbqlcc57n63p" path="res://Art/clouds/cloud_6.tscn" id="12_15olh"]
 [ext_resource type="PackedScene" uid="uid://b3t8215cga4ym" path="res://Art/clouds/cloud_3.tscn" id="13_4boym"]
 [ext_resource type="PackedScene" uid="uid://h4wtj1ukqxig" path="res://Objects/Spring.tscn" id="13_54hao"]
-[ext_resource type="PackedScene" path="res://Objects/Boss.tscn" id="13_l2hta"]
+[ext_resource type="PackedScene" uid="uid://cfbqr1n2325vk" path="res://Objects/Boss.tscn" id="13_l2hta"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_j3ubl"]
 emission_shape = 3
