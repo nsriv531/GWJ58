@@ -178,7 +178,11 @@ func hit(knock_back):
 		else:
 			$AnimatedSprite2D.play("hit_left")
 		state = HIT
-
+func restore_hearts(heal_amount):
+	if(hearts < 3):
+		hearts += heal_amount
+		life_changed.emit(hearts)
+	pass
 func is_full():
 	if water_fill < 800:
 		is_notify = false

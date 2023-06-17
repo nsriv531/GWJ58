@@ -47,3 +47,4 @@ func pause_Game():
 func game_over():
 	death_menue.show()
 	get_tree().paused = true
+	pass
