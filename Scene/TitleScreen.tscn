@@ -9,6 +9,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
+offset_left = -110.0
+offset_top = -24.0
+offset_right = -110.0
+offset_bottom = -24.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_lfybs")
@@ -21,9 +25,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -83.0
-offset_top = -74.0
+offset_top = -112.0
 offset_right = 83.0
-offset_bottom = 74.0
+offset_bottom = 55.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(2, 2)
@@ -52,6 +56,7 @@ layout_mode = 2
 text = "Optitions"
 
 [node name="Quite" type="Button" parent="Panel/VBoxContainer"]
+visible = false
 layout_mode = 2
 text = "Quite"
 

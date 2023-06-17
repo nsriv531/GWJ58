@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://crr4hlotrifkx"]
+[gd_scene load_steps=52 format=3 uid="uid://crr4hlotrifkx"]
 
 [ext_resource type="Script" path="res://Objects/NewPlayer.gd" id="1_6uy2v"]
 [ext_resource type="Texture2D" uid="uid://c2m8tfyey01yk" path="res://Art/bucky/buckyrightdump.png" id="2_mfvdy"]
@@ -20,6 +20,7 @@
 [ext_resource type="AudioStream" uid="uid://okqvjwjm6271" path="res://Music/walk.wav" id="18_0bxn5"]
 [ext_resource type="Texture2D" uid="uid://b1udi2oeparkf" path="res://Art/bucky/bucketheart.png" id="19_bfleq"]
 [ext_resource type="Script" path="res://Objects/HealthBar.gd" id="19_ejb24"]
+[ext_resource type="PackedScene" uid="uid://chyinxko027f4" path="res://Scene/PauseScreen.tscn" id="19_larmy"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_x1cbm"]
 radius = 42.0
@@ -342,6 +343,8 @@ volume_db = -1.874
 
 [node name="walk_left" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("18_0bxn5")
+
+[node name="PauseScreen" parent="." instance=ExtResource("19_larmy")]
 
 [node name="life" type="Control" parent="."]
 layout_mode = 3

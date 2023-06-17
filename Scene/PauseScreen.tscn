@@ -1,19 +1,47 @@
-[gd_scene format=3 uid="uid://chyinxko027f4"]
+[gd_scene load_steps=2 format=3 uid="uid://chyinxko027f4"]
+
+[ext_resource type="Script" path="res://Scene/PauseScreen.gd" id="1_2b2xl"]
 
 [node name="PauseScreen" type="Control"]
 layout_mode = 3
-anchors_preset = 0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+script = ExtResource("1_2b2xl")
+metadata/_edit_use_anchors_ = true
 
 [node name="Panel" type="Panel" parent="."]
-layout_mode = 1
+layout_mode = 0
+offset_right = 5.0
+scale = Vector2(2, 2)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="Button" type="Button" parent="Panel/VBoxContainer"]
+[node name="Label" type="Label" parent="Panel/VBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
+text = "=Pause="
 
-[node name="Button2" type="Button" parent="Panel/VBoxContainer"]
+[node name="resume" type="Button" parent="Panel/VBoxContainer"]
 layout_mode = 2
+text = "Resume"
+
+[node name="tittlescreen" type="Button" parent="Panel/VBoxContainer"]
+layout_mode = 2
+text = "Title screen"
+
+[connection signal="pressed" from="Panel/VBoxContainer/resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/tittlescreen" to="." method="_on_tittlescreen_pressed"]

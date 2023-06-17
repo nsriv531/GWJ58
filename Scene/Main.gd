@@ -2,11 +2,12 @@ extends Node2D
 signal  pause_game_signal
 @export var level_num:int = 1
 @onready var player = $Player
-
+@onready var pause_menue = $Player/PauseScreen
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	var endflag = $EndFlag
 
+	var endflag = $EndFlag
+   
 	if(endflag != null):
 		endflag.next_level.connect(next_level)
 	
@@ -30,11 +31,14 @@ func next_level():
 func _process(delta):
 	$GPUParticles2D.position.x = $Player.position.x
 	#$GPUParticles2D.position.y = $Player.position.y
+	if Input.is_action_just_pressed("pause"):
+		pause_Game()
 	
 	pass
 	
 
 func pause_Game():
-	get_tree().paused
+	pause_menue.show()
+	get_tree().paused = true
 	pass
 
