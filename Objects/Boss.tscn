@@ -1,11 +1,11 @@
-[gd_scene load_steps=24 format=3 uid="uid://cfbqr1n2325vk"]
+[gd_scene load_steps=27 format=3 uid="uid://cfbqr1n2325vk"]
 
 [ext_resource type="Script" path="res://Objects/Boss.gd" id="1_jowgh"]
 [ext_resource type="Texture2D" uid="uid://dva5hm551p2fd" path="res://Art/faucetguy-sheet.png" id="1_o07s6"]
 [ext_resource type="AudioStream" uid="uid://b4x106wnhdd88" path="res://Music/bosstakesdamage.mp3" id="3_ndpi5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_35u4k"]
-size = Vector2(192, 251)
+size = Vector2(212, 251)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nbrip"]
 atlas = ExtResource("1_o07s6")
@@ -153,27 +153,65 @@ animations = [{
 }],
 "loop": false,
 "name": &"spray",
-"speed": 5.0
+"speed": 10.0
 }]
 
+[sub_resource type="Animation" id="Animation_800mv"]
+resource_name = "hit"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.211765), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ohai1"]
+_data = {
+"hit": SubResource("Animation_800mv")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5b403"]
+size = Vector2(58, 241.25)
+
 [node name="Boss" type="Area2D"]
+modulate = Color(1, 1, 1, 0.211765)
 script = ExtResource("1_jowgh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, -34.5)
+position = Vector2(-11, -34.5)
 shape = SubResource("RectangleShape2D_35u4k")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(80, -46)
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_p8d1e")
-animation = &"hit"
+animation = &"spray"
 
-[node name="Timer" type="Timer" parent="."]
+[node name="AttackTimer" type="Timer" parent="."]
 
 [node name="BossGetsHit" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_ndpi5")
 volume_db = 18.738
 
+[node name="HitTimer" type="Timer" parent="."]
+
+[node name="Effects" type="AnimationPlayer" parent="."]
+speed_scale = 3.0
+libraries = {
+"": SubResource("AnimationLibrary_ohai1")
+}
+
+[node name="WaterCollision" type="CollisionShape2D" parent="."]
+position = Vector2(-86, 177)
+shape = SubResource("RectangleShape2D_5b403")
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]
+[connection signal="timeout" from="HitTimer" to="." method="_on_hit_timer_timeout"]

@@ -68,7 +68,7 @@ func _physics_process(delta):
 func raycast_fill_water(delta):
 	var space_state = get_world_2d().direct_space_state
 	# use global coordinates, not local to node
-	var query = PhysicsRayQueryParameters2D.create(global_position, global_position + Vector2(0,-200))
+	var query = PhysicsRayQueryParameters2D.create(global_position, global_position + Vector2(0,-800))
 	query.exclude = [self]
 	var result = space_state.intersect_ray(query)
 	if result.size() == 0 && water_fill < 1000:

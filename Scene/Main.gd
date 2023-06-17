@@ -5,7 +5,7 @@ signal  pause_game_signal
 @onready var pause_menue = $Player/PauseScreen
 # Called when the node enters the scene tree for the first time.
 func _ready():
-
+	
 	var endflag = $EndFlag
    
 	if(endflag != null):

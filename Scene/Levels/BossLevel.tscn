@@ -100,7 +100,7 @@ position = Vector2(-101, 752)
 JUMP_HEIGHT = -1000
 
 [node name="Boss" parent="." instance=ExtResource("13_l2hta")]
-position = Vector2(494, 545)
+position = Vector2(533, 327)
 
 [connection signal="Spring_Jump_velcity" from="Spring" to="Player" method="_on_spring_spring_jump_velcity"]
 [connection signal="Spring_Jump_velcity" from="Spring2" to="Player" method="_on_spring_spring_jump_velcity"]
