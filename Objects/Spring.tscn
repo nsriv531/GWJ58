@@ -49,6 +49,5 @@ sprite_frames = SubResource("SpriteFrames_euig4")
 [node name="SpringDefualtimer" type="Timer" parent="."]
 wait_time = 0.5
 
-[connection signal="Spring_Jump_velcity" from="." to="." method="_on_spring_jump_velcity"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="SpringDefualtimer" to="." method="_on_spring_defualtimer_timeout"]

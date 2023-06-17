@@ -3,11 +3,12 @@ signal  pause_game_signal
 @export var level_num:int = 1
 @onready var player = $Player
 @onready var pause_menue = $Player/PauseScreen
+@onready var death_menue = $Player/GameOver
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	
 	var endflag = $EndFlag
-   
+
 	if(endflag != null):
 		endflag.next_level.connect(next_level)
 	
@@ -41,4 +42,6 @@ func pause_Game():
 	pause_menue.show()
 	get_tree().paused = true
 	pass
-
+func game_over():
+	death_menue.show()
+	get_tree().paused = true

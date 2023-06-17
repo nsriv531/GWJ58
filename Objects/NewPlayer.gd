@@ -6,6 +6,9 @@ var max_hearts: int = 3
 var hearts: float = max_hearts
 
 
+signal player_dead
+
+
 enum{IDLE, DUMP, HIT, LEFT,RIGHT}
 @export var SPRING_VELOCITY: float = -1000.0
 var water_fill = 0
@@ -164,7 +167,7 @@ func hit(knock_back):
 	velocity.y = JUMP_VELOCITY
 	hearts -= damage 
 	if(hearts <= 0):
-		hearts
+		player_dead.emit()
 	else:
 		life_changed.emit(hearts)
 		if is_full():
