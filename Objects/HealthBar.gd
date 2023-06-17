@@ -2,7 +2,7 @@ extends Control
 
 
 
-var heart_size = Vector2(73,112)
+var heart_size = Vector2(26,26)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
