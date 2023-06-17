@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://Scene/PauseScreen.gd" id="1_2b2xl"]
 
 [node name="PauseScreen" type="Control"]
+process_mode = 2
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -21,6 +22,7 @@ offset_right = 5.0
 scale = Vector2(2, 2)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+process_mode = 2
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

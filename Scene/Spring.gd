@@ -4,14 +4,6 @@ extends Area2D
 @onready var animation = $AnimatedSprite2D 
 signal Spring_Jump_velcity(jumpheight)
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
 
 
 
@@ -21,7 +13,6 @@ func _process(delta: float) -> void:
 
 
 func _on_body_entered(body: Node2D) -> void:
-	print_debug(body.get_node("RigidBody2D"))
 	Spring_Jump_velcity.emit(JUMP_HEIGHT)
 	$SpringDefualtimer.start()
 	animation.play("activate")

@@ -142,6 +142,7 @@ func jump_animation(direction):
 			
 func _on_spring_spring_jump_velcity(jumpheight) -> void:
 	velocity.y = jumpheight
+	state = IDLE
 	pass # Replace with function body.
 
 func hit(knock_back):
@@ -177,7 +178,6 @@ func is_dumping():
 func _on_wind_push_player_back(speed) -> void:
 	
 	if !is_full():
-
 		velocity.x = speed
 		velocity.y = -100
 		$AnimatedSprite2D.play("hit_left")
