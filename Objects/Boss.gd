@@ -6,6 +6,7 @@ var player
 var state
 var health
 var move_to_pos
+@onready var boss_hit = $BossGetsHit
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$AnimatedSprite2D.play("idle")
@@ -65,7 +66,9 @@ func squash(damage):
 	else:
 		state = HIT
 		$AnimatedSprite2D.play("hit")
-
+		if not boss_hit.playing:
+			boss_hit.play()
+			
 func attack():
 	state = ATTACK
 	move_to_pos = player.position - Vector2(0, 200)

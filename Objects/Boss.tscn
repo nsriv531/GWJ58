@@ -1,7 +1,8 @@
-[gd_scene load_steps=23 format=3 uid="uid://cfbqr1n2325vk"]
+[gd_scene load_steps=24 format=3 uid="uid://cfbqr1n2325vk"]
 
 [ext_resource type="Script" path="res://Objects/Boss.gd" id="1_jowgh"]
 [ext_resource type="Texture2D" uid="uid://dva5hm551p2fd" path="res://Art/faucetguy-sheet.png" id="1_o07s6"]
+[ext_resource type="AudioStream" uid="uid://b4x106wnhdd88" path="res://Music/bosstakesdamage.mp3" id="3_ndpi5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_35u4k"]
 size = Vector2(192, 251)
@@ -169,6 +170,10 @@ sprite_frames = SubResource("SpriteFrames_p8d1e")
 animation = &"hit"
 
 [node name="Timer" type="Timer" parent="."]
+
+[node name="BossGetsHit" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_ndpi5")
+volume_db = 18.738
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
