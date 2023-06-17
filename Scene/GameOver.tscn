@@ -6,10 +6,8 @@
 [node name="GameOver" instance=ExtResource("1_3yx1t")]
 script = ExtResource("2_rkygq")
 
-[node name="Label" parent="Panel/VBoxContainer" index="0"]
-text = "=Game Over="
-horizontal_alignment = 1
+[node name="Label" parent="VBoxContainer" index="0"]
+text = "=GameOver="
 
-[node name="resume" parent="Panel/VBoxContainer" index="1"]
-text = "Retry
-"
+[node name="resume" parent="VBoxContainer" index="1"]
+text = "Retry"

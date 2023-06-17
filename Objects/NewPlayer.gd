@@ -29,6 +29,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 
 func _ready():
+	
 	state = IDLE
 	life_changed.emit(hearts)
 	$Camera2D/Label.text = "Water:"
@@ -166,10 +167,12 @@ func hit(knock_back):
 	velocity.x = knock_back
 	velocity.y = JUMP_VELOCITY
 	hearts -= damage 
+	life_changed.emit(hearts)
 	if(hearts <= 0):
+		print_debug(hearts)
+
 		player_dead.emit()
 	else:
-		life_changed.emit(hearts)
 		if is_full():
 			$AnimatedSprite2D.play("hit_left_full")
 		else:

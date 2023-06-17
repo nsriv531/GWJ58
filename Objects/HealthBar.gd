@@ -17,6 +17,6 @@ func _process(delta: float) -> void:
 
 func _on_life_changed(health) -> void:
 	
-	print_debug( health)
+
 	$heart.set_size(heart_size * Vector2(1 * health,1))    
 	pass # Replace with function body.

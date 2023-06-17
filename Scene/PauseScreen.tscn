@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://chyinxko027f4"]
+[gd_scene load_steps=3 format=3 uid="uid://chyinxko027f4"]
 
 [ext_resource type="Script" path="res://Scene/PauseScreen.gd" id="1_2b2xl"]
+[ext_resource type="FontFile" uid="uid://2ags8kql0rds" path="res://Art/ARCADECLASSIC.TTF" id="2_q5sku"]
 
 [node name="PauseScreen" type="Control"]
 process_mode = 2
@@ -12,38 +13,51 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(2, 2)
 size_flags_horizontal = 4
 script = ExtResource("1_2b2xl")
 metadata/_edit_use_anchors_ = true
 
 [node name="Panel" type="Panel" parent="."]
-layout_mode = 0
-offset_right = 5.0
+layout_mode = 1
+offset_left = -484.5
+offset_top = -280.0
+offset_right = -3.5
+offset_bottom = 25.0
 scale = Vector2(2, 2)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 process_mode = 2
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = -1.0
-offset_bottom = -1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -103.0
+offset_right = 103.0
+offset_bottom = 141.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="Panel/VBoxContainer"]
+[node name="Label" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_q5sku")
+theme_override_font_sizes/font_size = 30
 text = "=Pause="
 
-[node name="resume" type="Button" parent="Panel/VBoxContainer"]
+[node name="resume" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_q5sku")
+theme_override_font_sizes/font_size = 30
 text = "Resume"
 
-[node name="tittlescreen" type="Button" parent="Panel/VBoxContainer"]
+[node name="tittlescreen" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_q5sku")
+theme_override_font_sizes/font_size = 30
 text = "Title screen"
 
-[connection signal="pressed" from="Panel/VBoxContainer/resume" to="." method="_on_resume_pressed"]
-[connection signal="pressed" from="Panel/VBoxContainer/tittlescreen" to="." method="_on_tittlescreen_pressed"]
+[connection signal="pressed" from="VBoxContainer/resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="VBoxContainer/tittlescreen" to="." method="_on_tittlescreen_pressed"]

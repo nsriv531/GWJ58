@@ -8,11 +8,13 @@ signal  pause_game_signal
 func _ready():
 	
 	var endflag = $EndFlag
-
+	var player = $Player
+	
 	if(endflag != null):
 		endflag.next_level.connect(next_level)
-	
+		
 	var shrines = get_tree().get_nodes_in_group("Shrine")
+	player.player_dead.connect(game_over)
 	for shrine in shrines:
 		endflag.connect_shrine(shrine)
 	pass # Replace with function body.
