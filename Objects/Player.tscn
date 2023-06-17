@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://crr4hlotrifkx"]
+[gd_scene load_steps=55 format=3 uid="uid://crr4hlotrifkx"]
 
 [ext_resource type="Script" path="res://Objects/NewPlayer.gd" id="1_6uy2v"]
 [ext_resource type="Texture2D" uid="uid://c2m8tfyey01yk" path="res://Art/bucky/buckyrightdump.png" id="2_mfvdy"]
@@ -21,6 +21,9 @@
 [ext_resource type="Texture2D" uid="uid://b1udi2oeparkf" path="res://Art/bucky/bucketheart.png" id="19_bfleq"]
 [ext_resource type="Script" path="res://Objects/HealthBar.gd" id="19_ejb24"]
 [ext_resource type="PackedScene" uid="uid://chyinxko027f4" path="res://Scene/PauseScreen.tscn" id="19_larmy"]
+[ext_resource type="AudioStream" uid="uid://wrjl51fbd4vj" path="res://Music/dump.wav" id="22_fsuwd"]
+[ext_resource type="AudioStream" uid="uid://dq3dyykppyknq" path="res://Music/jump.wav" id="23_jt572"]
+[ext_resource type="AudioStream" uid="uid://dmx57w38bvv5m" path="res://Music/jumpfull.wav" id="24_okue2"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_x1cbm"]
 radius = 42.0
@@ -373,5 +376,15 @@ size_flags_vertical = 0
 texture = ExtResource("19_bfleq")
 expand_mode = 1
 stretch_mode = 1
+
+[node name="DumpNoise" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("22_fsuwd")
+volume_db = -17.802
+
+[node name="jump" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("23_jt572")
+
+[node name="fulljump" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("24_okue2")
 
 [connection signal="life_changed" from="." to="life" method="_on_life_changed"]

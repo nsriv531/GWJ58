@@ -5,6 +5,7 @@ var damage = 0.5
 var max_hearts: int = 3
 var hearts: float = max_hearts
 
+
 enum{IDLE, DUMP, HIT, LEFT,RIGHT}
 @export var SPRING_VELOCITY: float = -1000.0
 var water_fill = 0
@@ -12,6 +13,9 @@ const SPEED = 300.0
 const JUMP_VELOCITY = -700.0
 @onready var fullnotification = $FullNotif
 @onready var walk_left = $walk_left
+@onready var dump = $DumpNoise
+@onready var jumpnoise = $jump
+@onready var fulljumpnoise = $fulljump
 var is_notify = false
 var waterParticle = preload("res://Scene/WaterParticle.tscn")
 
@@ -113,8 +117,12 @@ func movement(delta):
 		if Input.is_action_just_pressed("dump") and is_on_floor():
 			state = DUMP
 			if is_full():
+				if not dump.playing:
+					dump.play()
 				$AnimatedSprite2D.play("dump")
 			else:
+				if not dump.playing:
+					dump.play()
 				$AnimatedSprite2D.play("partial_dump")
 			
 		if Input.is_action_just_pressed("jump") and is_on_floor():
@@ -128,16 +136,22 @@ func jump_animation(direction):
 		if is_full():
 			$AnimatedSprite2D.play("left_jump_slow")
 		else:
+			if not jumpnoise.playing:
+				jumpnoise.play()
 			$AnimatedSprite2D.play("left_jump")
 	elif direction == RIGHT:
 		if is_full():
 			$AnimatedSprite2D.play("right_jump_slow")
 		else:
+			if not jumpnoise.playing:
+				jumpnoise.play()
 			$AnimatedSprite2D.play("right_jump")
 	elif direction == IDLE:
 		if is_full():
 			$AnimatedSprite2D.play("idle_jump_slow")
 		else:
+			if not jumpnoise.playing:
+				jumpnoise.play()
 			$AnimatedSprite2D.play("idle_jump")
 			
 func _on_spring_spring_jump_velcity(jumpheight) -> void:
