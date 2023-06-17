@@ -4,8 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://dva5hm551p2fd" path="res://Art/faucetguy-sheet.png" id="1_o07s6"]
 [ext_resource type="AudioStream" uid="uid://b4x106wnhdd88" path="res://Music/bosstakesdamage.mp3" id="3_ndpi5"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_35u4k"]
-size = Vector2(212, 251)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gvxpo"]
+size = Vector2(229, 217)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nbrip"]
 atlas = ExtResource("1_o07s6")
@@ -185,8 +185,8 @@ modulate = Color(1, 1, 1, 0.211765)
 script = ExtResource("1_jowgh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-11, -34.5)
-shape = SubResource("RectangleShape2D_35u4k")
+position = Vector2(-1.5, -14.5)
+shape = SubResource("RectangleShape2D_gvxpo")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(80, -46)

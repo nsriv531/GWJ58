@@ -1,6 +1,8 @@
 extends Area2D
 enum{ALIVE,DEAD,HIT}
 
+@onready var bonk = $Bonk
+
 var is_moving_right = true
 var linear_velocity = 50
 var health = 1000
@@ -8,6 +10,7 @@ var state
 
 func squash(damage):
 	health -= damage
+	bonk.play()
 	if health <= 0:
 		state = DEAD
 		$AnimatedSprite2D.play("death")
@@ -32,6 +35,7 @@ func _process(delta):
 	if state == ALIVE:
 		movement(delta)
 		$AnimatedSprite2D.play("default")
+		
 func movement(delta):
 	if is_moving_right == true:
 		position.x += linear_velocity * delta

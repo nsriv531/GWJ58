@@ -19,7 +19,7 @@
 [ext_resource type="AudioStream" uid="uid://d07g1nlesjbf0" path="res://Music/fullnotif.wav" id="17_afiyt"]
 [ext_resource type="AudioStream" uid="uid://okqvjwjm6271" path="res://Music/walk.wav" id="18_0bxn5"]
 [ext_resource type="Script" path="res://Objects/HealthBar.gd" id="19_ejb24"]
-[ext_resource type="PackedScene" uid="uid://chyinxko027f4" path="res://Scene/PauseScreen.tscn" id="19_larmy"]
+[ext_resource type="PackedScene" path="res://Scene/PauseScreen.tscn" id="19_larmy"]
 [ext_resource type="PackedScene" uid="uid://c5c54m71ivb1b" path="res://Scene/GameOver.tscn" id="20_log43"]
 [ext_resource type="AudioStream" uid="uid://wrjl51fbd4vj" path="res://Music/dump.wav" id="22_fsuwd"]
 [ext_resource type="Texture2D" uid="uid://c1lqdkc2bidlt" path="res://Art/bucky/bucketheartsmall.png" id="22_lswpw"]
@@ -235,7 +235,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"left_walk",
-"speed": 2.5
+"speed": 2.7
 }, {
 "frames": [{
 "duration": 1.0,
@@ -293,7 +293,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"right_walk",
-"speed": 2.5
+"speed": 2.7
 }, {
 "frames": [{
 "duration": 1.0,
@@ -324,7 +324,7 @@ shape = SubResource("CapsuleShape2D_x1cbm")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(3.5, 3.5)
 sprite_frames = SubResource("SpriteFrames_yljo6")
-animation = &"hit_left"
+animation = &"right_walk"
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
 occluder = SubResource("OccluderPolygon2D_ny441")
@@ -391,7 +391,7 @@ stretch_mode = 1
 
 [node name="DumpNoise" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("22_fsuwd")
-volume_db = -17.802
+volume_db = -4.653
 
 [node name="jump" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("23_jt572")

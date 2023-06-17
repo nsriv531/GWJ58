@@ -85,6 +85,8 @@ func movement(delta):
 	
 	# Add the gravity.
 	if not is_on_floor():
+		if walk_left.playing:
+			walk_left.stop()
 		velocity.y += (gravity  + water_fill/2) * delta
 
 	# Handle Jump.
@@ -98,19 +100,28 @@ func movement(delta):
 			if is_on_floor():
 				if is_full():
 					$AnimatedSprite2D.play("right_walk_slow")
+					if walk_left.playing:
+						walk_left.stop()
 				else:
 					$AnimatedSprite2D.play("right_walk")
+					if not walk_left.playing:
+						walk_left.play()
 			velocity.x = direction * speed
 		elif direction < 0:
 			if is_on_floor():
 				if is_full():
 					$AnimatedSprite2D.play("left_walk_slow")
+					if walk_left.playing:
+						walk_left.stop()
 				else:
 					$AnimatedSprite2D.play("left_walk")
 					if not walk_left.playing:
 						walk_left.play()
 			velocity.x = direction * speed
 		else:
+			if walk_left.playing:
+				walk_left.stop()
+				
 			if is_on_floor():
 				if is_full():
 					$AnimatedSprite2D.play("idle_slow")
@@ -130,6 +141,7 @@ func movement(delta):
 				$AnimatedSprite2D.play("partial_dump")
 			
 		if Input.is_action_just_pressed("jump") and is_on_floor():
+			jumpnoise.play()
 			velocity.y = JUMP_VELOCITY
 			
 	if state != DUMP:
@@ -140,22 +152,16 @@ func jump_animation(direction):
 		if is_full():
 			$AnimatedSprite2D.play("left_jump_slow")
 		else:
-			if not jumpnoise.playing:
-				jumpnoise.play()
 			$AnimatedSprite2D.play("left_jump")
 	elif direction == RIGHT:
 		if is_full():
 			$AnimatedSprite2D.play("right_jump_slow")
 		else:
-			if not jumpnoise.playing:
-				jumpnoise.play()
 			$AnimatedSprite2D.play("right_jump")
 	elif direction == IDLE:
 		if is_full():
 			$AnimatedSprite2D.play("idle_jump_slow")
 		else:
-			if not jumpnoise.playing:
-				jumpnoise.play()
 			$AnimatedSprite2D.play("idle_jump")
 			
 func _on_spring_spring_jump_velcity(jumpheight) -> void:

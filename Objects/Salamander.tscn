@@ -1,9 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://b3q3ioij4wxsv"]
+[gd_scene load_steps=15 format=3 uid="uid://b3q3ioij4wxsv"]
 
 [ext_resource type="Script" path="res://Objects/Snake.gd" id="1_ancb7"]
 [ext_resource type="Texture2D" uid="uid://b2xlmktc6vs2x" path="res://Art/salamanderdied.png" id="2_jyyya"]
 [ext_resource type="Texture2D" uid="uid://b1yu58lg3jhjh" path="res://Art/salamandermoveleft.png" id="2_ol2wb"]
 [ext_resource type="Texture2D" uid="uid://b4ob4rycu4efd" path="res://Art/salamandergettinghit.png" id="4_g8nq5"]
+[ext_resource type="AudioStream" uid="uid://oljrrf1vghfb" path="res://Music/bonk.wav" id="5_vs4rl"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wbga1"]
 radius = 12.0
@@ -93,6 +94,10 @@ position = Vector2(0, -0.5)
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 5.0
+
+[node name="Bonk" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_vs4rl")
+volume_db = -5.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered" flags=18]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout" flags=18]
