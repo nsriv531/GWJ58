@@ -133,6 +133,7 @@ func _process(delta):
 			#YOU WIN
 			self.visible = false
 			state = FINALDEAD
+			get_tree().change_scene_to_file("res://Scene/EndCredit.tscn")
 
 func shake_position():
 	if Engine.get_frames_drawn() % 4 == 0:

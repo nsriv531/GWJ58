@@ -4,6 +4,7 @@
 [ext_resource type="Script" path="res://Scene/EndCredit.gd" id="1_m0yve"]
 
 [node name="EndCredit" type="Control"]
+process_mode = 2
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -54,4 +55,6 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_0jx4r")
 theme_override_font_sizes/font_size = 50
-text = "Play Again"
+text = "Title 	Screen"
+
+[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]
