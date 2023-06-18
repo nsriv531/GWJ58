@@ -16,6 +16,7 @@ func _ready():
 	var shrines = get_tree().get_nodes_in_group("Shrine")
 	player.player_dead.connect(game_over)
 	for shrine in shrines:
+		shrine.connect_player_dump(player)
 		endflag.connect_shrine(shrine)
 	pass # Replace with function body.
 

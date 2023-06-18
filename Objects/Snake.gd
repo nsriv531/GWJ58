@@ -10,6 +10,12 @@ var state
 
 func squash(damage):
 	health -= damage
+	
+	var length:int = health/30
+	
+	$Healthbar.size = Vector2(length,2)
+	$Healthbar.position.x = 0 - length/2
+	
 	bonk.play()
 	if health <= 0:
 		state = DEAD
@@ -19,6 +25,13 @@ func squash(damage):
 		$AnimatedSprite2D.play("hit")
 
 func _ready():
+	
+	var length:int = health/30
+	
+	$Healthbar.size = Vector2(length,2)
+	$Healthbar.position.x = 0 - length/2
+	
+	$Healthbar.position
 	$Timer.start()
 	state = ALIVE
 	$AnimatedSprite2D.play("default")

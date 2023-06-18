@@ -186,8 +186,11 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ul58x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ul58x")
 }],
-"loop": true,
+"loop": false,
 "name": &"hit2",
 "speed": 2.5
 }, {
@@ -328,8 +331,7 @@ shape = SubResource("RectangleShape2D_gvxpo")
 position = Vector2(80, -46)
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_p8d1e")
-animation = &"spray2"
-frame_progress = 0.29444
+animation = &"hit2"
 
 [node name="AttackTimer" type="Timer" parent="."]
 

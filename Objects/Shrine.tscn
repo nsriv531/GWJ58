@@ -1,7 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://cjbbeejbhv17c"]
+[gd_scene load_steps=16 format=3 uid="uid://cjbbeejbhv17c"]
 
 [ext_resource type="Texture2D" uid="uid://bgauxu36s4cqo" path="res://Art/tilemap_ver2.png" id="1_eu2n6"]
 [ext_resource type="Script" path="res://Objects/Shrine.gd" id="1_k61i7"]
+[ext_resource type="FontFile" uid="uid://2ags8kql0rds" path="res://Art/ARCADECLASSIC.TTF" id="3_qb0th"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_63yti"]
 atlas = ExtResource("1_eu2n6")
@@ -102,6 +103,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_22nxy"]
 size = Vector2(42.4, 26.8)
 
+[sub_resource type="LabelSettings" id="LabelSettings_kk45p"]
+font = ExtResource("3_qb0th")
+
 [node name="Shrine" type="Area2D" groups=["Shrine"]]
 scale = Vector2(5, 5)
 script = ExtResource("1_k61i7")
@@ -114,6 +118,14 @@ animation = &"var1_notonfire"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1.90735e-06, -3.4)
 shape = SubResource("RectangleShape2D_22nxy")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -17.8
+offset_top = -27.2
+offset_right = 22.2
+offset_bottom = -4.2
+text = "1000"
+label_settings = SubResource("LabelSettings_kk45p")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

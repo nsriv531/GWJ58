@@ -8,6 +8,7 @@ var hearts: float = max_hearts
 
 signal player_dead
 
+signal dumped(dumped)
 
 enum{IDLE, DUMP, HIT, LEFT,RIGHT}
 @export var SPRING_VELOCITY: float = -1000.0
@@ -48,6 +49,7 @@ func _process(delta):
 	
 	elif state == DUMP:
 		if $AnimatedSprite2D.frame == 3:
+			dumped.emit(water_fill)
 			water_fill = 0
 			state = IDLE
 			

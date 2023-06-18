@@ -166,7 +166,10 @@ func squash(damage):
 	else:
 		$Effects.play("hit")
 		self.hittable = false
-		$WaterCollision.disabled = false
+		
+		$WaterCollision.disabled = true
+		$WaterCollision2.disabled = true
+		
 		$HitTimer.start(2)
 		
 		before_hit_state = state
@@ -189,7 +192,7 @@ func _on_attack_timer_timeout():
 
 
 func _on_hit_timer_timeout():
-	if state != DEAD && state != TRANSFORM:
+	if state != DEAD && state != FINALDEAD:
 		$HitTimer.stop()
 		$Effects.stop(false)
 		self.modulate.a = 1.0

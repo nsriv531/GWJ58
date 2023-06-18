@@ -99,5 +99,11 @@ wait_time = 5.0
 stream = ExtResource("5_vs4rl")
 volume_db = -5.0
 
+[node name="Healthbar" type="ColorRect" parent="."]
+offset_top = -11.6
+offset_right = 40.0
+offset_bottom = -9.6
+color = Color(1, 0, 0, 1)
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered" flags=18]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout" flags=18]
