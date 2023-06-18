@@ -56,7 +56,7 @@ visibility_rect = Rect2(-100, -100, 500, 2000)
 
 [node name="Level1Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_k3b6x")
-volume_db = -20.0
+volume_db = -25.0
 autoplay = true
 
 [node name="Snake" parent="." instance=ExtResource("4_pkcyc")]
