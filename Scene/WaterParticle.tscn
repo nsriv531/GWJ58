@@ -1,7 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://bn6nnfb3wujun"]
+[gd_scene load_steps=7 format=3 uid="uid://bn6nnfb3wujun"]
 
 [ext_resource type="Script" path="res://Scene/WaterParticle.gd" id="1_8pxjy"]
-[ext_resource type="Texture2D" uid="uid://c2m8tfyey01yk" path="res://Art/bucky/buckyrightdump.png" id="2_kgkns"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_iqkrs"]
 light_mode = 1
@@ -49,7 +48,3 @@ one_shot = true
 explosiveness = 0.92
 randomness = 0.36
 local_coords = true
-
-[node name="Buckyrightdump" type="Sprite2D" parent="."]
-position = Vector2(8, -120)
-texture = ExtResource("2_kgkns")
