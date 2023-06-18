@@ -111,11 +111,13 @@ func _process(delta):
 		if temp_pos == null:
 			temp_pos = self.position
 		if phase == 1:
+			#START OF STAGE 1 DEATH ANIMATION
 			$AnimatedSprite2D.play("dead")
 			if position.y <= 720:
 				shake_position()
 				position.y += delta * 70
 			else:
+				#STAGE 2 BEGINS
 				var deaadboss = deadboss.instantiate()
 				deaadboss.position = self.position
 				get_tree().get_root().get_child(0).add_child(deaadboss)
@@ -128,6 +130,7 @@ func _process(delta):
 				phase = 2
 				setup_timer()
 		elif phase == 2:
+			#YOU WIN
 			self.visible = false
 			state = FINALDEAD
 
