@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://srsdr6qrq7kb"]
+[gd_scene load_steps=13 format=3 uid="uid://srsdr6qrq7kb"]
 
 [ext_resource type="Script" path="res://Scene/Main.gd" id="1_kaeiy"]
 [ext_resource type="TileSet" uid="uid://c1u7252wfu8fe" path="res://Scene/TileSet.tres" id="2_gf5qo"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://cjbbeejbhv17c" path="res://Objects/Shrine.tscn" id="8_2y32s"]
 [ext_resource type="PackedScene" uid="uid://cio8icrsxqxnq" path="res://Objects/Wind.tscn" id="9_lfv81"]
 [ext_resource type="PackedScene" uid="uid://bqpye4lu8rv5w" path="res://Objects/EndFlag.tscn" id="10_ir1gb"]
+[ext_resource type="PackedScene" uid="uid://cvpb7u188w8xu" path="res://Objects/Elixers.tscn" id="11_mhcjm"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_j3ubl"]
 emission_shape = 3
@@ -108,6 +109,15 @@ PUSHBACK_VELOCITY = -1000.0
 
 [node name="EndFlag" parent="." instance=ExtResource("10_ir1gb")]
 position = Vector2(2648, 103)
+
+[node name="Elixer" parent="." instance=ExtResource("11_mhcjm")]
+position = Vector2(2143, 169)
+
+[node name="Elixer2" parent="." instance=ExtResource("11_mhcjm")]
+position = Vector2(800, 422)
+
+[node name="Elixer3" parent="." instance=ExtResource("11_mhcjm")]
+position = Vector2(33, 821)
 
 [connection signal="Spring_Jump_velcity" from="Spring" to="Player" method="_on_spring_spring_jump_velcity"]
 [connection signal="Spring_Jump_velcity" from="Spring3" to="Player" method="_on_spring_spring_jump_velcity"]

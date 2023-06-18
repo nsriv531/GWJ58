@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cw0wbgwfy4ksk"]
+[gd_scene load_steps=15 format=3 uid="uid://cw0wbgwfy4ksk"]
 
 [ext_resource type="Script" path="res://Scene/Main.gd" id="1_ibcgo"]
 [ext_resource type="TileSet" uid="uid://c1u7252wfu8fe" path="res://Scene/TileSet.tres" id="2_hsqb4"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://cjbbeejbhv17c" path="res://Objects/Shrine.tscn" id="10_lnvvd"]
 [ext_resource type="PackedScene" uid="uid://bqpye4lu8rv5w" path="res://Objects/EndFlag.tscn" id="11_cun8d"]
 [ext_resource type="PackedScene" uid="uid://b3q3ioij4wxsv" path="res://Objects/Salamander.tscn" id="12_lwe1h"]
+[ext_resource type="PackedScene" uid="uid://cvpb7u188w8xu" path="res://Objects/Elixers.tscn" id="13_mn0ou"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_j3ubl"]
 emission_shape = 3
@@ -80,7 +81,7 @@ region_enabled = true
 region_rect = Rect2(15, 440.512, 113.5, 80.988)
 
 [node name="cloud4" type="Sprite2D" parent="."]
-position = Vector2(1092, -467)
+position = Vector2(1037, -501)
 scale = Vector2(9.17857, 9.17857)
 texture = ExtResource("6_l82l1")
 region_enabled = true
@@ -133,6 +134,12 @@ position = Vector2(2900.59, 995.082)
 
 [node name="Salamander" parent="." instance=ExtResource("12_lwe1h")]
 position = Vector2(1345, 1108)
+
+[node name="Elixer1" parent="." instance=ExtResource("13_mn0ou")]
+position = Vector2(487, 966)
+
+[node name="Elixer2" parent="." instance=ExtResource("13_mn0ou")]
+position = Vector2(1842, 1141)
 
 [connection signal="push_player_back" from="Wind" to="Player" method="_on_wind_push_player_back"]
 [connection signal="Spring_Jump_velcity" from="Spring" to="Player" method="_on_spring_spring_jump_velcity"]

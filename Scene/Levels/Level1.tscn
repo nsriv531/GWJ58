@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://kwqqh5wodb6w"]
+[gd_scene load_steps=17 format=3 uid="uid://kwqqh5wodb6w"]
 
 [ext_resource type="Script" path="res://Scene/Main.gd" id="1_pa5jl"]
 [ext_resource type="TileSet" uid="uid://c1u7252wfu8fe" path="res://Scene/TileSet.tres" id="2_aeln7"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://fbqlcc57n63p" path="res://Art/clouds/cloud_6.tscn" id="12_0v65k"]
 [ext_resource type="PackedScene" uid="uid://b3t8215cga4ym" path="res://Art/clouds/cloud_3.tscn" id="13_3vemb"]
 [ext_resource type="PackedScene" uid="uid://bqpye4lu8rv5w" path="res://Objects/EndFlag.tscn" id="14_6ip5k"]
+[ext_resource type="PackedScene" uid="uid://cvpb7u188w8xu" path="res://Objects/Elixers.tscn" id="15_o0eyp"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_j3ubl"]
 emission_shape = 3
@@ -100,5 +101,8 @@ position = Vector2(639, -85)
 
 [node name="EndFlag" parent="." instance=ExtResource("14_6ip5k")]
 position = Vector2(1037, 208)
+
+[node name="Elixer" parent="." instance=ExtResource("15_o0eyp")]
+position = Vector2(365, 192)
 
 [connection signal="pause_game_signal" from="." to="Player" method="_on_node_2d_pause_game_signal"]

@@ -8,7 +8,7 @@ signal  pause_game_signal
 func _ready():
 	
 	var endflag = $EndFlag
-	var player = $Player
+
 	
 	if(endflag != null):
 		endflag.next_level.connect(next_level)
