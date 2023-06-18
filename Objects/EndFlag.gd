@@ -12,7 +12,7 @@ func _ready():
 	level = 0
 	$EndFlagArea/Flag.modulate = Color(1,1,1)
 	total = get_tree().get_nodes_in_group("Shrine").size()
-
+	cur = total
 	update_label()
 	pass # Replace with function body.
 
