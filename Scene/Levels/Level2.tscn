@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cw0wbgwfy4ksk"]
+[gd_scene load_steps=19 format=3 uid="uid://cw0wbgwfy4ksk"]
 
 [ext_resource type="Script" path="res://Scene/Main.gd" id="1_ibcgo"]
 [ext_resource type="TileSet" uid="uid://c1u7252wfu8fe" path="res://Scene/TileSet.tres" id="2_hsqb4"]
@@ -28,6 +28,18 @@ scale_max = 5.0
 color = Color(0.698039, 0.796078, 1, 1)
 collision_mode = 2
 collision_use_scale = true
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d41p5"]
+size = Vector2(319.442, 19.8425)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d2umg"]
+size = Vector2(239.301, 19.8425)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7s4bq"]
+size = Vector2(239.652, 19.2475)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_12t0l"]
+size = Vector2(239.744, 21.0099)
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_ibcgo")
@@ -140,6 +152,29 @@ position = Vector2(487, 966)
 
 [node name="Elixer2" parent="." instance=ExtResource("13_mn0ou")]
 position = Vector2(1842, 1141)
+
+[node name="Platforms" type="StaticBody2D" parent="."]
+position = Vector2(-171.052, 57.0176)
+
+[node name="Platform" type="CollisionShape2D" parent="Platforms"]
+position = Vector2(391.364, 250.329)
+shape = SubResource("RectangleShape2D_d41p5")
+one_way_collision = true
+
+[node name="Platform2" type="CollisionShape2D" parent="Platforms"]
+position = Vector2(1391.21, 250.217)
+shape = SubResource("RectangleShape2D_d2umg")
+one_way_collision = true
+
+[node name="Platform3" type="CollisionShape2D" parent="Platforms"]
+position = Vector2(1791.35, 169.543)
+shape = SubResource("RectangleShape2D_7s4bq")
+one_way_collision = true
+
+[node name="Platform4" type="CollisionShape2D" parent="Platforms"]
+position = Vector2(2191.29, 89.9364)
+shape = SubResource("RectangleShape2D_12t0l")
+one_way_collision = true
 
 [connection signal="push_player_back" from="Wind" to="Player" method="_on_wind_push_player_back"]
 [connection signal="Spring_Jump_velcity" from="Spring" to="Player" method="_on_spring_spring_jump_velcity"]

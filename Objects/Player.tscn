@@ -399,4 +399,16 @@ stream = ExtResource("23_jt572")
 [node name="fulljump" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("24_okue2")
 
+[node name="boss_health" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="boss_healthbar" type="ColorRect" parent="boss_health"]
+offset_top = -485.0
+offset_right = 100.0
+offset_bottom = -410.0
+color = Color(1, 0, 0, 1)
+
 [connection signal="life_changed" from="." to="life" method="_on_life_changed"]

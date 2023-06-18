@@ -153,7 +153,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"spray",
-"speed": 10.0
+"speed": 9.0
 }]
 
 [sub_resource type="Animation" id="Animation_800mv"]

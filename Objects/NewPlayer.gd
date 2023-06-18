@@ -19,6 +19,7 @@ const JUMP_VELOCITY = -700.0
 @onready var dump = $DumpNoise
 @onready var jumpnoise = $jump
 @onready var fulljumpnoise = $fulljump
+@onready var boss_healthbar = $boss_health/boss_healthbar
 var is_notify = false
 var waterParticle = preload("res://Scene/WaterParticle.tscn")
 
@@ -29,7 +30,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 
 func _ready():
-	
+	boss_healthbar.visible = false
 	state = IDLE
 	life_changed.emit(hearts)
 	$Camera2D/Label.text = "Water:"
@@ -212,4 +213,21 @@ func _on_wind_push_player_back(speed) -> void:
 		velocity.y = -100
 		$AnimatedSprite2D.play("hit_left")
 	state = HIT
+	pass # Replace with function body.
+
+
+func _on_boss_boss_healthbar_create(health):
+	var screen_width = 1152
+	var length:int = health/5
+	
+	boss_healthbar.size = Vector2(length,50)
+	boss_healthbar.position.x = 0 - length/2
+	boss_healthbar.visible = true
+	pass # Replace with function body.
+
+
+func _on_boss_boss_healthbar_set(health):
+	var screen_width = 1152
+	var length:int = health/5
+	boss_healthbar.size = Vector2(length,50)
 	pass # Replace with function body.

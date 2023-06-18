@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cc31i0bxjv141"]
+[gd_scene load_steps=17 format=3 uid="uid://cc31i0bxjv141"]
 
 [ext_resource type="Script" path="res://Scene/Main.gd" id="1_7kq06"]
 [ext_resource type="TileSet" uid="uid://c1u7252wfu8fe" path="res://Scene/TileSet.tres" id="2_l222h"]
@@ -31,6 +31,9 @@ scale_max = 5.0
 color = Color(0.698039, 0.796078, 1, 1)
 collision_mode = 2
 collision_use_scale = true
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xayj8"]
+size = Vector2(240, 20)
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_7kq06")
@@ -113,5 +116,19 @@ position = Vector2(911, 441)
 [node name="Elixer3" parent="." instance=ExtResource("14_8l1uw")]
 position = Vector2(1076, 753)
 
+[node name="Platforms" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms"]
+position = Vector2(200, 490)
+shape = SubResource("RectangleShape2D_xayj8")
+one_way_collision = true
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Platforms"]
+position = Vector2(840, 490)
+shape = SubResource("RectangleShape2D_xayj8")
+one_way_collision = true
+
 [connection signal="Spring_Jump_velcity" from="Spring" to="Player" method="_on_spring_spring_jump_velcity"]
 [connection signal="Spring_Jump_velcity" from="Spring2" to="Player" method="_on_spring_spring_jump_velcity"]
+[connection signal="boss_healthbar_create" from="Boss" to="Player" method="_on_boss_boss_healthbar_create"]
+[connection signal="boss_healthbar_set" from="Boss" to="Player" method="_on_boss_boss_healthbar_set"]

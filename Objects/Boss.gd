@@ -1,7 +1,10 @@
 extends Area2D
 
-enum{IDLE,ACTIVE,DEAD,HIT,ATTACK}
+enum{IDLE,ACTIVE,DEAD,HIT,ATTACK,TRANSFORM}
 enum{MOVE_LEFT,MOVE_RIGHT}
+
+signal boss_healthbar_create(health)
+signal boss_healthbar_set(health)
 
 var player
 var state
@@ -26,8 +29,9 @@ func _ready():
 	
 	hittable = true
 	move_dir = MOVE_RIGHT
-	health = 5000
+	health = 3000
 	state = IDLE
+	boss_healthbar_create.emit(health)
 
 func _get_distance(n1, n2):
 	var relx = n1.position.x - n2.position.x
@@ -92,7 +96,7 @@ func squash(damage):
 		state = DEAD
 		#$AnimatedSprite2D.play("death")
 	else:
-		
+		boss_healthbar_set.emit(health)
 		$Effects.play("hit")
 		self.hittable = false
 		$WaterCollision.disabled = false
@@ -109,13 +113,15 @@ func attack():
 	move_to_pos = player.position - Vector2(-100, 200)
 
 func _on_attack_timer_timeout():
-	$AttackTimer.stop()
-	self.attack()
+	if state != DEAD && state != TRANSFORM:
+		$AttackTimer.stop()
+		self.attack()
 
 
 func _on_hit_timer_timeout():
-	$HitTimer.stop()
-	$Effects.stop(false)
-	self.modulate.a = 1.0
-	hittable = true
+	if state != DEAD && state != TRANSFORM:
+		$HitTimer.stop()
+		$Effects.stop(false)
+		self.modulate.a = 1.0
+		hittable = true
 	pass # Replace with function body.
