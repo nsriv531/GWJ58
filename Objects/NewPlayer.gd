@@ -19,7 +19,10 @@ const JUMP_VELOCITY = -700.0
 @onready var dump = $DumpNoise
 @onready var jumpnoise = $jump
 @onready var fulljumpnoise = $fulljump
+
 @onready var boss_healthbar = $boss_health/boss_healthbar
+@onready var boss_healthbar_background = $boss_health/boss_healthbar_background
+
 var is_notify = false
 var waterParticle = preload("res://Scene/WaterParticle.tscn")
 
@@ -31,6 +34,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 func _ready():
 	boss_healthbar.visible = false
+	boss_healthbar_background.visible = false
 	state = IDLE
 	life_changed.emit(hearts)
 	$Camera2D/Label.text = "Water:"
@@ -222,7 +226,13 @@ func _on_boss_boss_healthbar_create(health):
 	
 	boss_healthbar.size = Vector2(length,50)
 	boss_healthbar.position.x = 0 - length/2
+	
+	boss_healthbar_background.size = Vector2(length + 10 , 60)
+	boss_healthbar_background.position.x = 0 - (length + 10)/2
+	boss_healthbar_background.position.y = boss_healthbar_background.position.y - 5
+	
 	boss_healthbar.visible = true
+	boss_healthbar_background.visible = true
 	pass # Replace with function body.
 
 

@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://dcywp007wsufr"]
+
+[ext_resource type="Texture2D" uid="uid://dva5hm551p2fd" path="res://Art/faucetguy-sheet.png" id="1_xwsap"]
+
+[node name="DeadBoss" type="Node2D"]
+z_index = 10
+scale = Vector2(5, 5)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_xwsap")
+region_enabled = true
+region_rect = Rect2(624, 0, 120, 128)
