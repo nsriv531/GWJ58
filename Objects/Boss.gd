@@ -33,11 +33,10 @@ func setup():
 	move_dir = MOVE_RIGHT
 	$WaterCollision.disabled = true
 	$WaterCollision2.disabled = true
-	health = 2000
+	health = 3000
 	boss_healthbar_create.emit(health)
 	
 func _ready():
-	
 	$AnimatedSprite2D.play("idle")
 	player = self.get_parent().get_node("Player")
 	
@@ -125,10 +124,6 @@ func _process(delta):
 				setup()
 				$CollisionShape2D2.disabled = false
 				$CollisionShape2D.disabled = true
-				
-				get_tree().get_root().get_child(1).get_node("BossMusic").stop()
-				get_tree().get_root().get_child(1).get_node("BossMusic2").play()
-				
 				state = ACTIVE
 				phase = 2
 				setup_timer()
@@ -183,7 +178,7 @@ func attack():
 	if phase == 1:
 		move_to_pos = player.position - Vector2(-100, 200)
 	elif  phase == 2:
-		move_to_pos = player.position - Vector2(0, 100)
+		move_to_pos = player.position - Vector2(0, 200)
 
 func _on_attack_timer_timeout():
 	if state != DEAD && state != TRANSFORM:
