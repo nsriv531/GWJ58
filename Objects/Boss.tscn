@@ -329,7 +329,7 @@ position = Vector2(80, -46)
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_p8d1e")
 animation = &"spray2"
-frame_progress = 0.355516
+frame_progress = 0.29444
 
 [node name="AttackTimer" type="Timer" parent="."]
 
