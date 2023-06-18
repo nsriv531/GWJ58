@@ -35,7 +35,7 @@ collision_use_scale = true
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xayj8"]
 size = Vector2(240, 20)
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D3" type="Node2D"]
 script = ExtResource("1_7kq06")
 level_num = 4
 
