@@ -28,7 +28,7 @@ orbit_velocity_min = 0.0
 orbit_velocity_max = 0.0
 scale_min = 3.0
 scale_max = 7.0
-color = Color(0.458824, 0.839216, 1, 1)
+color = Color(0.105882, 0.654902, 1, 1)
 color_ramp = SubResource("GradientTexture1D_mq4xs")
 
 [node name="WaterParticle" type="Node2D"]
