@@ -41,7 +41,7 @@ size = Vector2(239.652, 19.2475)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_12t0l"]
 size = Vector2(239.744, 21.0099)
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D2" type="Node2D"]
 script = ExtResource("1_ibcgo")
 level_num = 2
 
@@ -67,7 +67,7 @@ volume_db = -30.488
 autoplay = true
 
 [node name="Player" parent="." instance=ExtResource("4_w3ly0")]
-position = Vector2(-246, 387)
+position = Vector2(-384, 399)
 
 [node name="sky" parent="." instance=ExtResource("5_rx0l0")]
 
@@ -117,7 +117,7 @@ region_rect = Rect2(45, 925.547, 55, 41)
 position = Vector2(2320, 1102)
 
 [node name="Wind" parent="." instance=ExtResource("8_psjjv")]
-position = Vector2(287, 418)
+position = Vector2(-92, 412)
 
 [node name="Spring" parent="." instance=ExtResource("9_xi6sj")]
 position = Vector2(905, 409)
