@@ -107,7 +107,6 @@ PUSHBACK_VELOCITY = -500.0
 
 [node name="Wind3" parent="winds" instance=ExtResource("9_lfv81")]
 position = Vector2(549, -937)
-scale = Vector2(14.286, 10)
 PUSHBACK_VELOCITY = -1000.0
 
 [node name="EndFlag" parent="." instance=ExtResource("10_ir1gb")]
