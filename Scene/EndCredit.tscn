@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cfypsaumt34yc"]
+[gd_scene load_steps=4 format=3 uid="uid://cfypsaumt34yc"]
 
 [ext_resource type="FontFile" uid="uid://2ags8kql0rds" path="res://Art/ARCADECLASSIC.TTF" id="1_0jx4r"]
 [ext_resource type="Script" path="res://Scene/EndCredit.gd" id="1_m0yve"]
+[ext_resource type="AudioStream" uid="uid://c81d48x81cuvu" path="res://Music/guitarsound.ogg" id="3_aof11"]
 
 [node name="EndCredit" type="Control"]
 process_mode = 2
@@ -56,5 +57,9 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_0jx4r")
 theme_override_font_sizes/font_size = 50
 text = "Title 	Screen"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_aof11")
+autoplay = true
 
 [connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]

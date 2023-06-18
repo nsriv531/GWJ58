@@ -33,7 +33,7 @@ func setup():
 	move_dir = MOVE_RIGHT
 	$WaterCollision.disabled = true
 	$WaterCollision2.disabled = true
-	health = 600
+	health = 1700
 	boss_healthbar_create.emit(health)
 	
 func _ready():
