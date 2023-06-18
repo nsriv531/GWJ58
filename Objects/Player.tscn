@@ -19,7 +19,7 @@
 [ext_resource type="AudioStream" uid="uid://d07g1nlesjbf0" path="res://Music/fullnotif.wav" id="17_afiyt"]
 [ext_resource type="AudioStream" uid="uid://okqvjwjm6271" path="res://Music/walk.wav" id="18_0bxn5"]
 [ext_resource type="Script" path="res://Objects/HealthBar.gd" id="19_ejb24"]
-[ext_resource type="PackedScene" path="res://Scene/PauseScreen.tscn" id="19_larmy"]
+[ext_resource type="PackedScene" uid="uid://chyinxko027f4" path="res://Scene/PauseScreen.tscn" id="19_larmy"]
 [ext_resource type="PackedScene" uid="uid://c5c54m71ivb1b" path="res://Scene/GameOver.tscn" id="20_log43"]
 [ext_resource type="AudioStream" uid="uid://wrjl51fbd4vj" path="res://Music/dump.wav" id="22_fsuwd"]
 [ext_resource type="Texture2D" uid="uid://c1lqdkc2bidlt" path="res://Art/bucky/bucketheartsmall.png" id="22_lswpw"]
