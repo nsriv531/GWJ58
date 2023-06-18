@@ -177,6 +177,7 @@ func _on_spring_spring_jump_velcity(jumpheight) -> void:
 	pass # Replace with function body.
 
 func hit(knock_back):
+	$Hit.play()
 	velocity.x = knock_back
 	velocity.y = JUMP_VELOCITY
 	hearts -= damage 
@@ -224,14 +225,14 @@ func _on_wind_push_player_back(speed) -> void:
 
 func _on_boss_boss_healthbar_create(health):
 	var screen_width = 1152
-	var length:int = health/5
+	var length:int = health/3
 	
 	boss_healthbar.size = Vector2(length,50)
 	boss_healthbar.position.x = 0 - length/2
 	
 	boss_healthbar_background.size = Vector2(length + 10 , 60)
 	boss_healthbar_background.position.x = 0 - (length + 10)/2
-	boss_healthbar_background.position.y = boss_healthbar_background.position.y - 5
+	boss_healthbar_background.position.y = -485 - 5
 	
 	boss_healthbar.visible = true
 	boss_healthbar_background.visible = true
@@ -240,6 +241,6 @@ func _on_boss_boss_healthbar_create(health):
 
 func _on_boss_boss_healthbar_set(health):
 	var screen_width = 1152
-	var length:int = health/5
+	var length:int = health/3
 	boss_healthbar.size = Vector2(length,50)
 	pass # Replace with function body.

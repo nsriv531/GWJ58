@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cc31i0bxjv141"]
+[gd_scene load_steps=18 format=3 uid="uid://cc31i0bxjv141"]
 
 [ext_resource type="Script" path="res://Scene/Main.gd" id="1_7kq06"]
 [ext_resource type="TileSet" uid="uid://c1u7252wfu8fe" path="res://Scene/TileSet.tres" id="2_l222h"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://b3t8215cga4ym" path="res://Art/clouds/cloud_3.tscn" id="11_y2yem"]
 [ext_resource type="PackedScene" uid="uid://cfbqr1n2325vk" path="res://Objects/Boss.tscn" id="13_jhkjh"]
 [ext_resource type="PackedScene" uid="uid://cvpb7u188w8xu" path="res://Objects/Elixers.tscn" id="14_8l1uw"]
+[ext_resource type="AudioStream" uid="uid://nwjm45o5ylml" path="res://Music/boss2.wav" id="15_081nd"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_j3ubl"]
 emission_shape = 3
@@ -127,6 +128,10 @@ one_way_collision = true
 position = Vector2(840, 490)
 shape = SubResource("RectangleShape2D_xayj8")
 one_way_collision = true
+
+[node name="BossMusic2" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("15_081nd")
+volume_db = -10.0
 
 [connection signal="Spring_Jump_velcity" from="Spring" to="Player" method="_on_spring_spring_jump_velcity"]
 [connection signal="Spring_Jump_velcity" from="Spring2" to="Player" method="_on_spring_spring_jump_velcity"]

@@ -33,7 +33,7 @@ func setup():
 	move_dir = MOVE_RIGHT
 	$WaterCollision.disabled = true
 	$WaterCollision2.disabled = true
-	health = 3000
+	health = 600
 	boss_healthbar_create.emit(health)
 	
 func _ready():
@@ -58,7 +58,7 @@ func _get_distance(n1, n2):
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	
-	if phase == 2 && state != FINALDEAD:
+	if phase == 2:
 		$Line2D.clear_points()
 		$Line2D.global_position = Vector2(0,0)
 			
@@ -113,6 +113,7 @@ func _process(delta):
 		if phase == 1:
 			#START OF STAGE 1 DEATH ANIMATION
 			$AnimatedSprite2D.play("dead")
+			get_tree().get_root().get_child(1).get_node("BossMusic").stop()
 			if position.y <= 720:
 				shake_position()
 				position.y += delta * 70
@@ -120,7 +121,10 @@ func _process(delta):
 				#STAGE 2 BEGINS
 				var deaadboss = deadboss.instantiate()
 				deaadboss.position = self.position
-				get_tree().get_root().get_child(0).add_child(deaadboss)
+				get_tree().get_root().get_child(1).add_child(deaadboss)
+				
+				get_tree().get_root().get_child(1).get_node("BossMusic2").play()
+				$HoseStart.play()
 				$Line2D.visible = true
 				dead_pos = self.position 
 				setup()
@@ -131,8 +135,13 @@ func _process(delta):
 				setup_timer()
 		elif phase == 2:
 			#YOU WIN
-			self.visible = false
+			$AnimatedSprite2D.play("dead2")
+			get_tree().get_root().get_child(1).get_node("BossMusic2").stop()
 			state = FINALDEAD
+			$HoseDeath.play()
+			
+	elif state == FINALDEAD:
+		if $AnimatedSprite2D.frame == 18:
 			get_tree().change_scene_to_file("res://Scene/EndCredit.tscn")
 
 func shake_position():
@@ -160,6 +169,7 @@ func squash(damage):
 	health -= damage
 	boss_healthbar_set.emit(health)
 	if health <= 0:
+		$BossDeath.play()
 		state = DEAD
 		#$AnimatedSprite2D.play("death")
 	else:
@@ -174,8 +184,10 @@ func squash(damage):
 		before_hit_state = state
 		state = HIT
 		$AnimatedSprite2D.play("hit" + str(phase))
-		if not boss_hit.playing:
-			boss_hit.play()
+		if phase == 1:
+			$BossGetsHit.play()
+		elif phase == 2:
+			$HoseHurt.play()
 			
 func attack():
 	state = ATTACK
@@ -185,7 +197,7 @@ func attack():
 		move_to_pos = player.position - Vector2(0, 200)
 
 func _on_attack_timer_timeout():
-	if state != DEAD && state != TRANSFORM:
+	if state != DEAD && state != TRANSFORM && state != FINALDEAD:
 		$AttackTimer.stop()
 		self.attack()
 

@@ -1,10 +1,14 @@
-[gd_scene load_steps=53 format=3 uid="uid://cfbqr1n2325vk"]
+[gd_scene load_steps=57 format=3 uid="uid://cfbqr1n2325vk"]
 
 [ext_resource type="Script" path="res://Objects/Boss.gd" id="1_jowgh"]
 [ext_resource type="Texture2D" uid="uid://dva5hm551p2fd" path="res://Art/faucetguy-sheet.png" id="1_o07s6"]
 [ext_resource type="AudioStream" uid="uid://b4x106wnhdd88" path="res://Music/bosstakesdamage.mp3" id="3_ndpi5"]
 [ext_resource type="Texture2D" uid="uid://bks6uyfw21245" path="res://Art/facehose-Sheet.png" id="3_vwri7"]
 [ext_resource type="Texture2D" uid="uid://ocdq8b418vcg" path="res://Art/facehosedeath.png" id="4_x3fs4"]
+[ext_resource type="AudioStream" uid="uid://bvfyxvhwjweoe" path="res://Music/bosshighestpitch.mp3" id="6_3xaw6"]
+[ext_resource type="AudioStream" uid="uid://8ikmmuykw5p7" path="res://Music/bossdies.wav" id="6_srwpt"]
+[ext_resource type="AudioStream" uid="uid://vsdjapoplcgk" path="res://Music/hose_awaken.wav" id="7_jcc5i"]
+[ext_resource type="AudioStream" uid="uid://c2huiiblafgsw" path="res://Music/hose_banish.wav" id="8_3hrsq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gvxpo"]
 size = Vector2(229, 217)
@@ -261,7 +265,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"dead2",
-"speed": 5.0
+"speed": 2.5
 }, {
 "frames": [{
 "duration": 1.0,
@@ -449,6 +453,20 @@ shape = SubResource("RectangleShape2D_pq8dm")
 [node name="WaterCollision2" type="CollisionShape2D" parent="."]
 position = Vector2(59.75, 22)
 shape = SubResource("RectangleShape2D_udvnv")
+
+[node name="BossDeath" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_srwpt")
+volume_db = 10.0
+
+[node name="HoseHurt" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_3xaw6")
+volume_db = 5.0
+
+[node name="HoseStart" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_jcc5i")
+
+[node name="HoseDeath" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_3hrsq")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]

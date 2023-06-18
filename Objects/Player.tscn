@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=3 uid="uid://crr4hlotrifkx"]
+[gd_scene load_steps=57 format=3 uid="uid://crr4hlotrifkx"]
 
 [ext_resource type="Script" path="res://Objects/NewPlayer.gd" id="1_6uy2v"]
 [ext_resource type="Texture2D" uid="uid://c2m8tfyey01yk" path="res://Art/bucky/buckyrightdump.png" id="2_mfvdy"]
@@ -19,12 +19,13 @@
 [ext_resource type="AudioStream" uid="uid://d07g1nlesjbf0" path="res://Music/fullnotif.wav" id="17_afiyt"]
 [ext_resource type="AudioStream" uid="uid://okqvjwjm6271" path="res://Music/walk.wav" id="18_0bxn5"]
 [ext_resource type="Script" path="res://Objects/HealthBar.gd" id="19_ejb24"]
-[ext_resource type="PackedScene" uid="uid://chyinxko027f4" path="res://Scene/PauseScreen.tscn" id="19_larmy"]
+[ext_resource type="PackedScene" path="res://Scene/PauseScreen.tscn" id="19_larmy"]
 [ext_resource type="PackedScene" uid="uid://c5c54m71ivb1b" path="res://Scene/GameOver.tscn" id="20_log43"]
 [ext_resource type="AudioStream" uid="uid://wrjl51fbd4vj" path="res://Music/dump.wav" id="22_fsuwd"]
 [ext_resource type="Texture2D" uid="uid://c1lqdkc2bidlt" path="res://Art/bucky/bucketheartsmall.png" id="22_lswpw"]
 [ext_resource type="AudioStream" uid="uid://dq3dyykppyknq" path="res://Music/jump.wav" id="23_jt572"]
 [ext_resource type="AudioStream" uid="uid://dmx57w38bvv5m" path="res://Music/jumpfull.wav" id="24_okue2"]
+[ext_resource type="AudioStream" uid="uid://b0j7k3g7io7vj" path="res://Music/hit.wav" id="26_8rj13"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_x1cbm"]
 radius = 42.0
@@ -418,5 +419,8 @@ offset_top = -485.0
 offset_right = 100.0
 offset_bottom = -410.0
 color = Color(1, 0, 0, 1)
+
+[node name="Hit" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("26_8rj13")
 
 [connection signal="life_changed" from="." to="life" method="_on_life_changed"]
